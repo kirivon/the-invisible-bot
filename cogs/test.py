@@ -40,6 +40,9 @@ class Test:
                 suffix = "th"
 
             name = ctx.author.nick
+            if name is None:
+                name = ctx.author.name
+
             msg = "Hello " + name + "! This is the " + \
                 str(hello_count) + suffix + " time somone has greeted me!"
             await ctx.send(msg)
