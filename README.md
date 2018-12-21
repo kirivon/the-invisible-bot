@@ -4,6 +4,7 @@
 * Docker Engine - Community 18.09.0
 * Dockerfile link from https://github.com/Gorialis/discord.py-docker
 * Discord.py:rewrite from https://github.com/Rapptz/discord.py
+* Redis.py from https://github.com/andymccurdy/redis-py
 * Python 3.7.1 (Alpine)
 * Redis 5.0.3 (Alpine)
 
@@ -26,3 +27,10 @@
 * Run "docker-compose restart" to update changes.
 
 Alternatively, one can simply run the main.py in your Python environment of choice and manually install dependencies. 
+
+### Useful links
+* https://docs.python.org/3/
+* https://discordpy.readthedocs.io/en/rewrite/
+* https://redis-py.readthedocs.io/en/latest/
+* https://docs.docker.com/
+* https://docs.docker.com/compose/
