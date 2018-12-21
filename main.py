@@ -13,7 +13,7 @@ with open("config.json") as config_file:
 bot = commands.Bot(command_prefix=PREFIX)
 
 # Define extensions
-extensions = ["cogs.test", "cogs.AlexTest"]
+extensions = ["cogs.test", "cogs.AlexTest", "cogs.searches"]
 
 
 @bot.event
