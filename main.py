@@ -16,16 +16,10 @@ bot = commands.Bot(command_prefix=PREFIX)
 extensions = ["cogs.test"]
 
 
-@bot.listen
+@bot.event
 async def on_ready():
     """Defines bot behavior when it is sucessfully loaded"""
     print("Logged in as {0.user}".format(bot))
-
-
-@bot.listen
-async def on_message(message):
-    """Defines bot behavior when a message is posted to channel"""
-    # Do something
 
 
 # Loads the listed extensions

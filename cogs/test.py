@@ -8,6 +8,10 @@ class Test:
     def __init__(self, bot):
         self.bot = bot
 
+    async def on_message(self, ctx):
+        """Defines bot behavior when a message is posted to channel"""
+        # Do something
+
     @commands.command()
     async def echo(self, ctx, arg):
         """Bot command that causes the bot to echo the argument it is passed"""
