@@ -31,6 +31,7 @@ Alternatively, one can simply run the main.py in your Python environment of choi
 ### Useful links
 * https://docs.python.org/3/
 * https://discordpy.readthedocs.io/en/rewrite/
+* https://discordpy.readthedocs.io/en/rewrite/ext/commands/commands.html
 * https://redis-py.readthedocs.io/en/latest/
 * https://docs.docker.com/
 * https://docs.docker.com/compose/
