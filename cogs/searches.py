@@ -10,9 +10,9 @@ class Searches:
         self.bot = bot
 
     @commands.command()
-    async def g(self, ctx, *args):
+    async def gi(self, ctx, *args):
         """Bot command that concocts the passed arguments together as a single
-        string, then returns the first google result for that string"""
+        string, then returns the first Google image result for that string"""
 
         # Load the keys from the config file stored in the base directory
         with open("config.json") as config_file:
