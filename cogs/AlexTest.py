@@ -1,4 +1,3 @@
-from os import getenv
 import discord
 from discord.ext import commands
 
@@ -10,7 +9,8 @@ class AlexTest:
 
     @commands.command()
     async def pong(self, ctx):
-        #Returns ping when called
+        """Bot command that returns the name of the invoker 
+        and the name of the server"""
         author = ctx.author.name
         server = ctx.guild.name
         await ctx.send("Pong from {} from {}!".format(author, server))
