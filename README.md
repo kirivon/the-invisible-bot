@@ -1,19 +1,19 @@
 # the-invisible-bot
 
-##A collaberative Discord bot project for The Invisible College, written in Python! Using:
+### A collaberative Discord bot project for The Invisible College, written in Python! Using:
 * Docker Engine - Community 18.09.0
 * Dockerfile link from https://github.com/Gorialis/discord.py-docker
 * Discord.py:rewrite from https://github.com/Rapptz/discord.py
 * Python 3.7.1 (Alpine)
 * Redis 5.0.3 (Alpine)
 
-## Contribution Guidelines
+### Contribution Guidelines
 * Add new functionality via new cogs then add them to the extensions list in main.py. Avoid adding code to main if possible.
 * Follow the Google style guide: https://github.com/google/styleguide/blob/gh-pages/pyguide.md
 * As stated in the guide, run pylint on your code.
 * Use YAPF with the following flags: --style='{based_on_style: chromium, indent_width: 4}'
 
-## Setting up a bot
+### Setting up a bot
 * Clone the repo and rename config.json.example to config.json
 * Go to: https://discordapp.com/developers/applications/ and create a new application.
 * Navigate to the "Bot" tab and click "Add Bot."
