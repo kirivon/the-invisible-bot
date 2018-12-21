@@ -19,4 +19,4 @@ class AlexTest:
 
 # Sets up the cog
 def setup(bot):
-    bot.add_cog(Test(bot))
+    bot.add_cog(AlexTest(bot))
