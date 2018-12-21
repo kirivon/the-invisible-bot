@@ -27,6 +27,7 @@ async def on_message(message):
     """Defines bot behavior when a message is posted to channel"""
     # Do something
 
+
 # Loads the listed extensions
 for extension in extensions:
     try:
@@ -37,4 +38,3 @@ for extension in extensions:
 # Blocking call that abstracts away the event loop initialization
 # Must be the last function called!
 bot.run(TOKEN)
-

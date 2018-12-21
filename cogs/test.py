@@ -4,6 +4,7 @@ from redis import Redis, RedisError
 
 
 class Test:
+
     def __init__(self, bot):
         self.bot = bot
 
@@ -18,8 +19,8 @@ class Test:
            number of times greeted """
 
         # Open connection to local redis server
-        redis = Redis(host="redis", db=0,
-                      socket_connect_timeout=2, socket_timeout=2)
+        redis = Redis(
+            host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
 
         try:  # Greets with greeting count if redis connection successful
             hello_count = redis.incr("hellos")
@@ -54,4 +55,3 @@ class Test:
 # Sets up the cog
 def setup(bot):
     bot.add_cog(Test(bot))
-
