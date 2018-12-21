@@ -8,11 +8,11 @@ class AlexTest:
         self.bot = bot
 
     @commands.command(pass_context=True)
-    async def ping(ctx):
+    async def pong(self, ctx):
         #Returns ping when called
         author = ctx.message.author.name
         server = ctx.message.server.name
-        await bot.say("Ping from {} from {}!".format(author,server))
+        await bot.say("Pong from {} from {}!".format(author,server))
 
 
 
