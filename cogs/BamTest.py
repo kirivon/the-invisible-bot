@@ -22,7 +22,7 @@ class BamboozledTest:
 	"""
 
     def __init__(self, 
-    			 bot): 		# testing fam again
+    			bot): 		# testing fam again
         self.bot = bot
 
 
