@@ -11,7 +11,7 @@ class BrianTest:
         self.bot = bot
         
     @commands.command()
-    async.def druggie(self, ctx, user: discord.Member):
+    async def druggie(self, ctx, user: discord.Member):
         """Determines if user is a druggie"""
         value = random.randint(1, 100)
         if value % 2 == 0:
