@@ -24,6 +24,7 @@ class BamboozledTest:
     def __init__(self, bot):
         self.bot = bot
 
+
     @commands.command()
     async def chao(self, ctx):
         """ 0.1. Saying "hello"
