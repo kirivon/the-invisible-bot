@@ -17,19 +17,19 @@ from discord.ext import commands  # import commands from it?
 class BamboozledTest:
     """ 0.1. class Lamb will now prompt a user greeting for now
 
-		Avoid using: N/A
-		Arguments: N/A
-	"""
+        Avoid using: N/A
+        Arguments: N/A
+    """
 
     def __init__(self, 
-    			bot): 		# testing fam again
+                 bot):       # testing fam again
         self.bot = bot
 
 
     @commands.command()
     async def chao(self, ctx):
         """ 0.1. Saying "hello"
-		"""
+        """
         greeting = "Hello, my dude"
         await ctx.send(greeting)
 
