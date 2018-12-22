@@ -30,7 +30,7 @@ class BamboozledTest:
 		self.bot = bot
 
 	@commands.command()
-	async def hello(self, ctx):
+	async def chao(self, ctx):
 		""" 0.1. Saying "hello"
 		"""
 		greeting = "Hello, my dude"
