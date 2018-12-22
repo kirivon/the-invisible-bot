@@ -1,12 +1,8 @@
-"""
-Testing of how many times a client greets the bot
-"""
-
-
 # Author: Bamboozled
 
-import discord  					# import discord files?
-from discord.ext import commands	# import commands from it?
+import discord  # import discord files?
+from discord.ext import commands  # import commands from it?
+
 # from redis import Redis, RedisError # maybe not
 
 # =============================================================================
@@ -17,25 +13,26 @@ from discord.ext import commands	# import commands from it?
 # Base decision tree
 # =============================================================================
 
+
 class BamboozledTest:
-	""" 0.1. class Lamb will now prompt a user greeting for now
+    """ 0.1. class Lamb will now prompt a user greeting for now
 
 		Avoid using: N/A
 		Arguments: N/A
 	"""
 
-	def __init__(self,
-				 bot):			# testing 5
-		self.bot = bot
+    def __init__(self, bot):
+        self.bot = bot
 
-	@commands.command()
-	async def chao(self, ctx):
-		""" 0.1. Saying "hello"
+
+    @commands.command()
+    async def chao(self, ctx):
+        """ 0.1. Saying "hello"
 		"""
-		greeting = "Hello, my dude"
-		await ctx.send(greeting)
+        greeting = "Hello, my dude"
+        await ctx.send(greeting)
 
+
+# Sets up the cog
 def setup(bot):
-	""" not sure what this does, setting up?
-	"""
-	bot.add_cog(BamboozledTest(bot))
+    bot.add_cog(BamboozledTest(bot))
