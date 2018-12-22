@@ -25,7 +25,7 @@ class BamboozledTest:
 	"""
 
 	def __init__(self,
-				 bot):			# testing 4
+				 bot):			# testing 5
 		self.bot = bot
 
 	@commands.command()
