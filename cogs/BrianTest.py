@@ -16,7 +16,7 @@ class BrianTest:
         value = random.randint(1, 100)
         if value % 2 == 0:
             await ctx.send(user.mention + "is a druggie")
-        else
+        else:
             await ctx.send(user.mention + "is not a druggie")
     
     
