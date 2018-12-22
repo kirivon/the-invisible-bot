@@ -1,5 +1,5 @@
 import discord
 
-class brianTest:
+class BrianTest:
   # what should i do 
   
