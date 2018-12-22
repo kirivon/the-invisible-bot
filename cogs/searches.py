@@ -48,7 +48,7 @@ class Searches:
             return
 
         # Defines URL for Google Custom Search JSON API
-        url = "https://www.googleapis.com/customsearch/v1?key={}&cx={}&num=1&q={}searchType=image".format(
+        url = "https://www.googleapis.com/customsearch/v1?key={}&cx={}&num=1&q={}&searchType=image".format(
             GOOGLEAPIKEY, SEARCHENGINEID, searchstring)
         req = urllib.request.Request(url)
         with urllib.request.urlopen(req) as response:
