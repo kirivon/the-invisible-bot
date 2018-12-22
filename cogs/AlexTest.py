@@ -75,7 +75,7 @@ class AlexTest:
         await ctx.send(msg)
 
 
-    @commands.command(no_pm=True, hidden=True)
+    @commands.command()
     async def hug(self, user: discord.Member, intensity: int = 1):
         """Because everyone likes hugs
         Up to 10 intensity levels."""
