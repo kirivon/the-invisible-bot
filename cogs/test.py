@@ -1,3 +1,11 @@
+"""
+Testing of how many times a client greets the bot
+"""
+
+
+# Author: Lennard Huslik
+
+
 import discord
 from discord.ext import commands
 from redis import Redis, RedisError
@@ -8,11 +16,13 @@ class Test:
     def __init__(self, bot):
         self.bot = bot
 
-    async def on_message(self, ctx):
+    async def on_message(self, ctx): 
         """Defines bot behavior when a message is posted to channel"""
         # Do something
+        # ctx == self, technically, but self is used for instance (or abstract, in C++) class
+        # 							where ctx is used for methods 
 
-    @commands.command()
+    @commands.command() 		# <---------- using a class for a method 
     async def echo(self, ctx, arg):
         """Bot command that causes the bot to echo the argument it is passed"""
         await ctx.send(arg)
