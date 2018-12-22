@@ -39,4 +39,4 @@ class BamboozledTest:
 def setup(bot):
 	""" not sure what this does, setting up?
 	"""
-	bot.add_cog(BamboozledTest)
+	bot.add_cog(BamboozledTest(bot))
