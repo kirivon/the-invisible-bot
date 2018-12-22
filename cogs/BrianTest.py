@@ -10,8 +10,12 @@ class BrianTest:
         self.bot = bot
         
     @commands.command
-    async.def rngesus(self, ctx, range):
-        await ctx.send("Your number is " + random.randint(1, range))
+    async.def druggie(self, ctx, user: discord.Member):
+        value = random.randint(1, 100)
+        if value % 2 == 0:
+            await ctx.send(user.mention + "is a druggie")
+        else
+            await ctx.send(user.mention + "is not a druggie")
     
     
     
