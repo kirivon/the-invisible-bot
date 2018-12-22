@@ -1,6 +1,6 @@
 # the-invisible-bot
 
-### A collaberative Discord bot project for The Invisible College, written in Python! Using:
+### A collaborative Discord bot project for The Invisible College, written in Python! Using:
 * Docker Engine - Community 18.09.0
 * Dockerfile link from https://github.com/Gorialis/discord.py-docker
 * Discord.py:rewrite from https://github.com/Rapptz/discord.py
