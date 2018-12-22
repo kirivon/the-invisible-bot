@@ -13,7 +13,7 @@ class BrianTest:
     @commands.command()
     async def druggie(self, ctx, user: discord.Member):
         """Determines if user is a druggie"""
-        value = random.randint(1, 100)
+        value = random.randint(1, 100000)
         if value % 2 == 0:
             await ctx.send(user.mention + "is a druggie")
         else:
