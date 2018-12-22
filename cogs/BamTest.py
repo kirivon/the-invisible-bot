@@ -21,7 +21,7 @@ class BamboozledTest:
 		Arguments: N/A
 	"""
 
-    def __init__(self, bot):
+    def __init__(self, bot): 		# testing fam
         self.bot = bot
 
 
