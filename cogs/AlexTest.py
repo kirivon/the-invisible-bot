@@ -14,13 +14,13 @@ class AlexTest:
         ping_ = self.bot.latency
         ping = round(ping_ * 1000)
         await ctx.send(f"Your ping is {ping}ms")
-    
+
     @commands.command()
     async def punch(self,ctx, user: discord.Member):
         """Punches the user mentioned"""
         await ctx.send("ONE PUNCH! And " + user.mention + " is out! ლ(ಠ益ಠლ)")
 
-    
+
     @commands.command()
     async def info(self, ctx, member: discord.Member):
         """Tells you some info about the member."""
@@ -67,12 +67,31 @@ class AlexTest:
             return
         await ctx.send(f"{member} is beNNed  ̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\з= ( ▀ ͜͞ʖ▀) =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿ !")
 
-    
+
     @commands.command()
     async def avatar(self, ctx, user: discord.User):
         """Create URL of the persons avatar"""
         msg = " URL being created for user ( ͡°( ͡° ͜ʖ( ͡° ͜ʖ ͡°)ʖ ͡°) ͡°) " + user.avatar_url
         await ctx.send(msg)
+
+
+    @commands.command(no_pm=True, hidden=True)
+    async def hug(self, user: discord.Member, intensity: int = 1):
+        """Because everyone likes hugs
+        Up to 10 intensity levels."""
+        name = user.display_name
+        if intensity <= 0:
+            msg = "(っ˘̩╭╮˘̩)っ" + name
+        elif intensity <= 3:
+            msg = "(っ´▽｀)っ" + name
+        elif intensity <= 6:
+            msg = "╰(*´︶`*)╯" + name
+        elif intensity <= 9:
+            msg = "(つ≧▽≦)つ" + name
+        elif intensity >= 10:
+            msg = "(づ￣ ³￣)づ{} ⊂(´・ω・｀⊂)".format(name)
+        await self.bot.say(msg)
+
 
 
 
