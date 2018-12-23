@@ -57,7 +57,7 @@ class BamboozledTest:
 
 
     @commands.command()
-    async def ciao(self, ctx):
+    async def ciao(self, ctx, *greeting):
         """ 0.2. Greeting accordance to mood
             0.1. Saying "hello"
         """
