@@ -17,10 +17,9 @@ class AlexTest:
         await ctx.send(f"Your ping is {ping}ms")
 
     @commands.command()
-    async def punch(self,ctx, user: discord.Member):
+    async def punch(self, ctx, user: discord.Member):
         """Punches the user mentioned"""
         await ctx.send("ONE PUNCH! And " + user.mention + " is out! ლ(ಠ益ಠლ)")
-
 
     @commands.command()
     async def info(self, ctx, member: discord.Member):
@@ -35,7 +34,6 @@ class AlexTest:
         role = member.top_role
         msg = "{0} name is {1}. {0} status is {2}. They joined at {3}. {0} rank is {4}."
         await ctx.send(msg.format(pronoun, name, status, joined, role))
-
 
     @commands.command()
     async def roles(self, ctx, member: discord.Member):
@@ -58,15 +56,16 @@ class AlexTest:
         if member is ctx.message.author:
             await ctx.channel.send("You cannot ban yourself!")
             return
-        await ctx.send(f"{member} is beNNed  ̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\з= ( ▀ ͜͞ʖ▀) =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿ !")
-
+        # pylint: disable=W1401
+        await ctx.send(
+            f"{member} is beNNed  ̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\з= ( ▀ ͜͞ʖ▀) =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿ !"
+        )
 
     @commands.command()
     async def avatar(self, ctx, user: discord.User):
         """Create URL of the persons avatar"""
         msg = " URL being created for user ( ͡°( ͡° ͜ʖ( ͡° ͜ʖ ͡°)ʖ ͡°) ͡°) " + user.avatar_url
         await ctx.send(msg)
-
 
     @commands.command()
     async def hugs(self, ctx, user: discord.Member, intensity: int = 1):
@@ -87,21 +86,21 @@ class AlexTest:
     @commands.command()
     async def ed(self, ctx):
         """ed function returns a random quote"""
-        edMessages = ['Alright _raises arms_ let\'s get started', 'hah hah. I\'m just testing you guys',
-                        'I swear I\'m not making this up', 'So the exam is today, right?', 'D\'aw you guys are no fun']
+        edMessages = [
+            'Alright _raises arms_ let\'s get started',
+            'hah hah. I\'m just testing you guys',
+            'I swear I\'m not making this up', 'So the exam is today, right?',
+            'D\'aw you guys are no fun'
+        ]
         msg = random.choice(edMessages)
         edmoji = " <:ed:505909298245926932> "
         await ctx.send(edmoji + msg + edmoji)
-
-
 
     @info.error
     async def info_error(self, ctx, error):
         """If user DNE, prints error"""
         if isinstance(error, commands.BadArgument):
             await ctx.send('I could not find that member')
-
-
 
 
 # Sets up the cog
