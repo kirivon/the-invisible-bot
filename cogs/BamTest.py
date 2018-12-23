@@ -40,7 +40,7 @@ class BamboozledTest:
 
 
     @commands.command()
-    async def feels(self, ctx):
+    async def ciao(self, ctx):
         """ 0.2. Greeting accordance to mood
             0.1. Saying "hello"
         """
@@ -57,9 +57,10 @@ class BamboozledTest:
         await ctx.send(greeting[mood-1])       # array max index is n -1 
 
 
-    @bot.event
-    async def feels_on_message(message):
-        await channel.send('Say hello!')
+    @commands.event
+    async def feels_on_message(self, ctx, message):
+        if message.content.startswith('testing'):
+            await ctx.send('Say hello!')
 
 
 # Sets up the cog
