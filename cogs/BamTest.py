@@ -12,13 +12,7 @@ from discord.ext import commands  # import commands from it?
 # =============================================================================
 # Types and constants
 # =============================================================================
-greeting = [    "(╯°□°)╯︵ ┻━┻ GTFO",
-                "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
-                "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!", 
-                "( ︶︿︶)_╭∩╮ ",
-                "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
-                "\"(Ó_Ò\")\"  oh....kay" 
-            ]  
+
 # =============================================================================
 # Base decision tree
 # =============================================================================
@@ -39,6 +33,14 @@ class BamboozledTest:
 
         0.1. class Lamb will now prompt a user greeting for now
     """
+
+    greeting = [    "(╯°□°)╯︵ ┻━┻ GTFO",
+                    "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
+                    "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!", 
+                    "( ︶︿︶)_╭∩╮ ",
+                    "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
+                    "\"(Ó_Ò\")\"  oh....kay" 
+                ]  
 
     def __init__(self, 
                  bot):       # view: python3 is good, view: python is bad for sublime
