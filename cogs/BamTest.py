@@ -34,7 +34,7 @@ class BamboozledTest:
     """
 
     def __init__(self,
-                 bot):  # view: python3 is good, view: python is bad for sublime
+                 bot):  # view:python3 is good, view: python is bad for sublime
         self.bot = bot
 
     mood = random.randint(1, 6)  # generate a random mood like
@@ -42,20 +42,21 @@ class BamboozledTest:
 
     # pylint: disable=W1401
     greeting = [
-                    "(╯°□°)╯︵ ┻━┻ GTFO", "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
-                    "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!",
-                    "( ︶︿︶)_╭∩╮ ", "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
-                    "\"(Ó_Ò\")\"  oh....kay"
-                ]
+        "(╯°□°)╯︵ ┻━┻ GTFO", "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
+        "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!",
+        "( ︶︿︶)_╭∩╮ ", "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
+        "\"(Ó_Ò\")\"  oh....kay"
+    ]
 
     async def on_message(self, message):
         """Defines bot behavior when a message is posted to channel"""
-        
+
         if message.content.startswith("<:thonking:455992031752355870> "):
-            ctx = await self.bot.get_context(message)       # convert the result to bot class => ctx = bot.context
-            mood = random.randint(1,6)                      # generate a random mood like 
-                                                            # my cousin's wife
-            await ctx.send(self.greeting[mood-1])           # so that we can use ctx.send
+            # convert the result to bot class => ctx = bot.context
+            ctx = await self.bot.get_context(message)
+            mood = random.randint(1, 6)           # generate a random mood like
+            # my cousin's wife
+            await ctx.send(self.greeting[mood-1])  # we can use ctx.send
 
     @commands.command()
     async def ciao(self, ctx):
