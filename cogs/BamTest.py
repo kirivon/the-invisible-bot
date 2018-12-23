@@ -40,7 +40,7 @@ class BamboozledTest:
                  bot):       # view: python3 is good, view: python is bad for sublime
         self.bot = bot
 
-    *greeting = [    "(╯°□°)╯︵ ┻━┻ GTFO",
+    greeting = [    "(╯°□°)╯︵ ┻━┻ GTFO",
                     "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
                     "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!", 
                     "( ︶︿︶)_╭∩╮ ",
@@ -57,7 +57,7 @@ class BamboozledTest:
 
 
     @commands.command()
-    async def ciao(self, ctx, *greeting):
+    async def ciao(self, ctx):
         """ 0.2. Greeting accordance to mood
             0.1. Saying "hello"
         """
@@ -65,7 +65,7 @@ class BamboozledTest:
         mood = random.randint(1,6)             # generate a random mood like 
                                                # my cousin's wife
 
-        await ctx.send(greeting[mood-1])       # array max index is n -1 
+        await ctx.send(self.greeting[mood-1])       # array max index is n -1 
 
 # Sets up the cog
 def setup(bot):
