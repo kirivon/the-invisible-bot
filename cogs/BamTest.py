@@ -40,13 +40,18 @@ class BamboozledTest:
                  bot):       # view: python3 is good, view: python is bad for sublime
         self.bot = bot
 
+
+    mood = random.randint(1,6)             # generate a random mood like 
+                                           # my cousin's wife
+
     greeting = [    "(╯°□°)╯︵ ┻━┻ GTFO",
                     "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
                     "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!", 
                     "( ︶︿︶)_╭∩╮ ",
                     "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
                     "\"(Ó_Ò\")\"  oh....kay" 
-                ]  
+                ]
+
 
 
     async def on_message(self, message): 
@@ -55,9 +60,10 @@ class BamboozledTest:
         # ctx == self, technically, but self is used for instance (or abstract, in C++) class
         #                           where ctx is used for methods 
         
-        if message.content.startswith("$bam"):
+        if message.content.startswith("<:thonking:455992031752355870>"):
             ctx = await self.bot.get_context(message)       # convert the result to bot class => ctx = bot.context
-            await ctx.send("<:pikachu:512132390920126474>")                         # so that we can use ctx.send
+
+            await ctx.send(self.greeting[self.mood-1])                         # so that we can use ctx.send
 
 
 
@@ -67,10 +73,7 @@ class BamboozledTest:
             0.1. Saying "hello"
         """
 
-        mood = random.randint(1,6)             # generate a random mood like 
-                                               # my cousin's wife
-
-        await ctx.send(self.greeting[mood-1])       # array max index is n -1 
+        await ctx.send(self.greeting[self.mood-1])       # array max index is n -1 
 
 # Sets up the cog
 def setup(bot):
