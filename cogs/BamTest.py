@@ -55,7 +55,7 @@ class BamboozledTest:
         # ctx == self, technically, but self is used for instance (or abstract, in C++) class
         #                           where ctx is used for methods 
         
-        if ctx.content.startswith('$bam'):
+        if ctx.message.content.startswith('$bam'):
             await ctx.send("hello")
 
 
