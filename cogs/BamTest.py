@@ -47,7 +47,7 @@ class BamboozledTest:
 
         mood = random.randint(1,6)             # generate a random mood like 
                                                # my cousin's wife
-        greeting[2] = { "(╯°□°)╯︵ ┻━┻ GTFO",
+        greeting = { "(╯°□°)╯︵ ┻━┻ GTFO",
                         "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
                         "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ Hello, my dude!!!", 
                         "( ︶︿︶)_╭∩╮ 'sup",
