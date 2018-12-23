@@ -59,9 +59,12 @@ class BamboozledTest:
 
     @client.event
     async def on_message(message):
-        if message.content.startswith(':ed:'):
+        """ testing. Respond on message
+        """
+        mood = random.randint(1,6) 
+        if message.content.startswith(':thonking:'):
             channel = message.channel
-            await channel.send('Say hello!')
+            await channel.send(greeting[mood-1])
 
 
 # Sets up the cog
