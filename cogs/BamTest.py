@@ -50,17 +50,12 @@ class BamboozledTest:
 
     async def on_message(self, message):
         """Defines bot behavior when a message is posted to channel"""
-        # Do something
-        # ctx == self, technically, but self is used for instance (or abstract, in C++) class
-        #                           where ctx is used for methods
-
-        if message.content.startswith("<:thonking:455992031752355870>"):
-            ctx = await self.bot.get_context(
-                message)  # convert the result to bot class => ctx = bot.context
-            mood = random.randint(1, 6)  # generate a random mood like
-            # my cousin's wife
-            await ctx.send(
-                self.greeting[mood - 1])  # so that we can use ctx.send
+        
+        if message.content.startswith("<:thonking:455992031752355870> "):
+            ctx = await self.bot.get_context(message)       # convert the result to bot class => ctx = bot.context
+            mood = random.randint(1,6)                      # generate a random mood like 
+                                                            # my cousin's wife
+            await ctx.send(self.greeting[mood-1])           # so that we can use ctx.send
 
     @commands.command()
     async def ciao(self, ctx):
