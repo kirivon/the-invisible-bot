@@ -64,7 +64,7 @@ class BamboozledTest:
             ctx = await self.bot.get_context(message)       # convert the result to bot class => ctx = bot.context
             mood = random.randint(1,6)                      # generate a random mood like 
                                                             # my cousin's wife
-            await ctx.send(self.greeting[self.mood-1])                         # so that we can use ctx.send
+            await ctx.send(self.greeting[mood-1])                         # so that we can use ctx.send
 
 
 
@@ -75,7 +75,7 @@ class BamboozledTest:
         """
 
         mood = random.randint(1,6)
-        await ctx.send(self.greeting[self.mood-1])       # array max index is n -1 
+        await ctx.send(self.greeting[mood-1])       # array max index is n -1 
 
 # Sets up the cog
 def setup(bot):
