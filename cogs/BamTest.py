@@ -55,7 +55,7 @@ class BamboozledTest:
         # ctx == self, technically, but self is used for instance (or abstract, in C++) class
         #                           where ctx is used for methods 
         
-        if message.content.startswith("<:thonking:455992031752355870>")
+        if message.content.startswith(":thonking:455992031752355870")
             ctx = await self.bot.get_context(message)       # convert the result to bot class => ctx = bot.context
             await ctx.send("hello")                         # so that we can use ctx.send
 
