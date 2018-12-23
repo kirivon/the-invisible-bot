@@ -68,8 +68,8 @@ class AlexTest:
         await ctx.send(msg)
 
 
-    @commands.command(no_pm=True, hidden=True)
-    async def hug(self, user: discord.Member, intensity: int = 1):
+    @commands.command()
+    async def hug(self, ctx, user: discord.Member, intensity: int = 1):
         """Because everyone likes hugs Up to 10 intensity levels."""
         name = user.display_name
         if intensity <= 0:
@@ -82,7 +82,7 @@ class AlexTest:
             msg = "(つ≧▽≦)つ" + name
         elif intensity >= 10:
             msg = "(づ￣ ³￣)づ{} ⊂(´・ω・｀⊂)".format(name)
-        await self.bot.say(msg)
+        await ctx.send(msg)
 
     @commands.command()
     async def ed(self, ctx):
