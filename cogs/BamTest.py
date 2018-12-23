@@ -39,14 +39,15 @@ class BamboozledTest:
     def __init__(self, 
                  bot):       # view: python3 is good, view: python is bad for sublime
         self.bot = bot
-        greeting = [    "(╯°□°)╯︵ ┻━┻ GTFO",
-                        "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
-                        "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!", 
-                        "( ︶︿︶)_╭∩╮ ",
-                        "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
-                        "\"(Ó_Ò\")\"  oh....kay" 
-                    ]  
-                    
+
+    greeting = [    "(╯°□°)╯︵ ┻━┻ GTFO",
+                    "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
+                    "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!", 
+                    "( ︶︿︶)_╭∩╮ ",
+                    "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
+                    "\"(Ó_Ò\")\"  oh....kay" 
+                ]  
+
     async def on_message(self, ctx, greeting): 
         """Defines bot behavior when a message is posted to channel"""
         # Do something
