@@ -58,7 +58,7 @@ class BamboozledTest:
 
 
     @client.event
-    async def on_message(message):
+    async def feels_on_message(message):
         if message.content.startswith('$greet'):
             channel = message.channel
             await channel.send('Say hello!')
