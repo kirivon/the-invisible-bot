@@ -57,7 +57,8 @@ class BamboozledTest:
         
         if message.content.startswith("$bam"):
             ctx = await self.bot.get_context(message)
-            await ctx.send("hello")
+            #await ctx.send("hello")
+            await ctx.send(message)
 
 
 
