@@ -57,7 +57,7 @@ class BamboozledTest:
         
         if message.content.startswith("$bam"):
             ctx = await self.bot.get_context(message)       # convert the result to bot class => ctx = bot.context
-            await ctx.send(<:pikachu:512132390920126474>)                         # so that we can use ctx.send
+            await ctx.send("<:pikachu:512132390920126474>")                         # so that we can use ctx.send
 
 
 
