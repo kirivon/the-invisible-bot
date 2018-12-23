@@ -40,7 +40,7 @@ class BamboozledTest:
 
 
     @commands.command()
-    async def feel(self, ctx):
+    async def feels(self, ctx):
         """ 0.2. Greeting accordance to mood
             0.1. Saying "hello"
         """
@@ -58,7 +58,7 @@ class BamboozledTest:
 
 
     @client.event
-    async def feels_on_message(self, message):
+    async def feels_on_message(self, ctx, message):
         if message.content.startswith('$greet'):
             channel = message.channel
             await channel.send('Say hello!')
@@ -67,7 +67,7 @@ class BamboozledTest:
                 return m.content == 'hello' and m.channel == channel
 
             msg = await client.wait_for('message', check=check)
-            await channel.send('Hello {.author}!'.format(msg))
+            await ctx.send('Hello {.author}!'.format(msg))
 
 
 # Sets up the cog
