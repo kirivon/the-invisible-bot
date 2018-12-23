@@ -36,14 +36,6 @@ class AlexTest:
         msg = "{0} name is {1}. {0} status is {2}. They joined at {3}. {0} rank is {4}."
         await ctx.send(msg.format(pronoun, name, status, joined, role))
 
-    @commands.command()
-    async def currtime(self, ctx):
-        """Returns current 12 hour local time"""
-        now = datetime.now()
-        msg = now.strftime("Current time: %I:%M:%S %p")
-        await ctx.send(msg)
-
-
 
     @commands.command()
     async def roles(self, ctx, member: discord.Member):
@@ -78,8 +70,7 @@ class AlexTest:
 
     @commands.command(no_pm=True, hidden=True)
     async def hug(self, user: discord.Member, intensity: int = 1):
-        """Because everyone likes hugs
-        Up to 10 intensity levels."""
+        """Because everyone likes hugs Up to 10 intensity levels."""
         name = user.display_name
         if intensity <= 0:
             msg = "(っ˘̩╭╮˘̩)っ" + name
