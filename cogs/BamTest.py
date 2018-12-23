@@ -38,6 +38,19 @@ class BamboozledTest:
                  bot):       # view: python3 is good, view: python is bad for sublime
         self.bot = bot
 
+    async def on_message(self, ctx): 
+        """Defines bot behavior when a message is posted to channel"""
+        # Do something
+        # ctx == self, technically, but self is used for instance (or abstract, in C++) class
+        #                           where ctx is used for methods 
+        greeting = [    "(╯°□°)╯︵ ┻━┻ GTFO",
+                        "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
+                        "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!", 
+                        "( ︶︿︶)_╭∩╮ ",
+                        "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
+                        "\"(Ó_Ò\")\"  oh....kay" 
+                    ]        
+
 
     @commands.command()
     async def ciao(self, ctx):
@@ -47,21 +60,8 @@ class BamboozledTest:
 
         mood = random.randint(1,6)             # generate a random mood like 
                                                # my cousin's wife
-        greeting = [    "(╯°□°)╯︵ ┻━┻ GTFO",
-                        "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
-                        "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!", 
-                        "( ︶︿︶)_╭∩╮ ",
-                        "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
-                        "\"(Ó_Ò\")\"  oh....kay" 
-                    ]
+
         await ctx.send(greeting[mood-1])       # array max index is n -1 
-
-
-    @commands.command()
-    async def feels_on_message(self, message):
-        if message.content.startswith('testing'):
-            await ctx.send('Say hello!')
-
 
 # Sets up the cog
 def setup(bot):
