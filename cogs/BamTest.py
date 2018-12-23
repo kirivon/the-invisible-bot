@@ -42,11 +42,11 @@ class BamboozledTest:
 
     # pylint: disable=W1401
     greeting = [
-        "(╯°□°)╯︵ ┻━┻ GTFO", "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
-        "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!",
-        "( ︶︿︶)_╭∩╮ ", "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
-        "\"(Ó_Ò\")\"  oh....kay"
-    ]
+                    "(╯°□°)╯︵ ┻━┻ GTFO", "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
+                    "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!",
+                    "( ︶︿︶)_╭∩╮ ", "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
+                    "\"(Ó_Ò\")\"  oh....kay"
+                ]
 
     async def on_message(self, message):
         """Defines bot behavior when a message is posted to channel"""
