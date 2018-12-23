@@ -2,9 +2,10 @@
 
 # Author: An T. Vo
 
-import random   # to generate random numbers
 import discord  # import discord files?
+import random   # to generate random numbers
 from discord.ext import commands  # import commands from it?
+
 
 # from redis import Redis, RedisError # maybe not
 
