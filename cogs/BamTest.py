@@ -47,12 +47,13 @@ class BamboozledTest:
 
         mood = random.randint(1,6)             # generate a random mood like 
                                                # my cousin's wife
-        greeting = { "(╯°□°)╯︵ ┻━┻ GTFO",
+        greeting = [ "(╯°□°)╯︵ ┻━┻ GTFO",
                         "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
                         "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ Hello, my dude!!!", 
                         "( ︶︿︶)_╭∩╮ 'sup",
                         "| (• ◡•)| (❍ᴥ❍ʋ) how are you doing, fam?"
-                        "\"(Ó_Ò\")\"  hi......"}
+                        "\"(Ó_Ò\")\"  hi......" 
+                    ]
         await ctx.send(greeting[mood-1])       # array max index is n -1 
 
 
