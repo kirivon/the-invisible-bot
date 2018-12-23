@@ -48,7 +48,7 @@ class BamboozledTest:
                                                # my cousin's wife
         greeting[2] = { "(╯°□°)╯︵ ┻━┻ GTFO",
                         "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
-                        "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ Hello, my dude ", 
+                        "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ Hello, my dude!!!", 
                         "( ︶︿︶)_╭∩╮ 'sup",
                         "| (• ◡•)| (❍ᴥ❍ʋ) how are you doing, fam?"
                         "\"(Ó_Ò\")\"  hi......"}
