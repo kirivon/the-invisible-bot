@@ -3,9 +3,8 @@
 # Author: An T. Vo
 
 import discord  # import discord files?
-import random   # to generate random numbers
+import random  # to generate random numbers
 from discord.ext import commands  # import commands from it?
-
 
 # from redis import Redis, RedisError # maybe not
 
@@ -34,27 +33,22 @@ class BamboozledTest:
         0.1. class Lamb will now prompt a user greeting for now
     """
 
-
-
-    def __init__(self, 
-                 bot):       # view: python3 is good, view: python is bad for sublime
+    def __init__(self,
+                 bot):  # view: python3 is good, view: python is bad for sublime
         self.bot = bot
 
+    mood = random.randint(1, 6)  # generate a random mood like
+    # my cousin's wife
 
-    mood = random.randint(1,6)             # generate a random mood like 
-                                           # my cousin's wife
+    # pylint: disable=W1401
+    greeting = [
+        "(╯°□°)╯︵ ┻━┻ GTFO", "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
+        "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!",
+        "( ︶︿︶)_╭∩╮ ", "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
+        "\"(Ó_Ò\")\"  oh....kay"
+    ]
 
-    greeting = [    "(╯°□°)╯︵ ┻━┻ GTFO",
-                    "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
-                    "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!", 
-                    "( ︶︿︶)_╭∩╮ ",
-                    "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
-                    "\"(Ó_Ò\")\"  oh....kay" 
-                ]
-
-
-
-    async def on_message(self, message): 
+    async def on_message(self, message):
         """Defines bot behavior when a message is posted to channel"""
         
         if message.content.startswith("<:thonking:455992031752355870> "):
@@ -63,16 +57,15 @@ class BamboozledTest:
                                                             # my cousin's wife
             await ctx.send(self.greeting[mood-1])           # so that we can use ctx.send
 
-
-
     @commands.command()
     async def ciao(self, ctx):
         """ 0.2. Greeting accordance to mood
             0.1. Saying "hello"
         """
 
-        mood = random.randint(1,6)
-        await ctx.send(self.greeting[mood-1])       # array max index is n -1 
+        mood = random.randint(1, 6)
+        await ctx.send(self.greeting[mood - 1])  # array max index is n -1
+
 
 # Sets up the cog
 def setup(bot):
