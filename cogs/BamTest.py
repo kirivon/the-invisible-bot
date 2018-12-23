@@ -51,7 +51,7 @@ class BamboozledTest:
                         "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
                         "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ Hello, my dude!!!", 
                         "( ︶︿︶)_╭∩╮ 'sup",
-                        "| (• ◡•)| (❍ᴥ❍ʋ) how are you doing, fam?"
+                        "| (• ◡•)| (❍ᴥ❍ʋ) how are you doing, fam?",
                         "\"(Ó_Ò\")\"  hi......" 
                     ]
         await ctx.send(greeting[mood-1])       # array max index is n -1 
