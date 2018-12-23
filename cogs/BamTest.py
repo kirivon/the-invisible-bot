@@ -40,7 +40,7 @@ class BamboozledTest:
                  bot):       # view: python3 is good, view: python is bad for sublime
         self.bot = bot
 
-    greeting = [    "(╯°□°)╯︵ ┻━┻ GTFO",
+    *greeting = [    "(╯°□°)╯︵ ┻━┻ GTFO",
                     "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
                     "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!", 
                     "( ︶︿︶)_╭∩╮ ",
