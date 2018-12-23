@@ -57,8 +57,8 @@ class BamboozledTest:
         await ctx.send(greeting[mood-1])       # array max index is n -1 
 
 
-    @commands.event
-    async def feels_on_message(self, ctx, message):
+    @commands.command()
+    async def feels_on_message(self, message):
         if message.content.startswith('testing'):
             await ctx.send('Say hello!')
 
