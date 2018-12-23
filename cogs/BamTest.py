@@ -41,20 +41,27 @@ class BamboozledTest:
 
     @commands.command()
     async def ciao(self, ctx):
-        """ 0.2. SGreeting accordance to mood
+        """ 0.2. Greeting accordance to mood
             0.1. Saying "hello"
         """
 
         mood = random.randint(1,6)             # generate a random mood like 
                                                # my cousin's wife
-        greeting = [ "(╯°□°)╯︵ ┻━┻ GTFO",
+        greeting = [    "(╯°□°)╯︵ ┻━┻ GTFO",
                         "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
-                        "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ Hello, my dude!!!", 
-                        "( ︶︿︶)_╭∩╮ 'sup",
-                        "| (• ◡•)| (❍ᴥ❍ʋ) how are you doing, fam?",
-                        "\"(Ó_Ò\")\"  hi......" 
+                        "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ Oh yeah, my dude!!!", 
+                        "( ︶︿︶)_╭∩╮ ",
+                        "| (• ◡•)| (❍ᴥ❍ʋ ) darn right",
+                        "\"(Ó_Ò\")\"  oh....kay" 
                     ]
         await ctx.send(greeting[mood-1])       # array max index is n -1 
+
+
+    @client.event
+    async def on_message(message):
+        if message.content.startswith(':ed:'):
+            channel = message.channel
+            await channel.send('Say hello!')
 
 
 # Sets up the cog
