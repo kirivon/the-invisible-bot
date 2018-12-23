@@ -1,6 +1,6 @@
 # the invisible bot's emotions testing 2
 
-# Author: An T. Vo
+# Author: James Emerson (An Vo)
 
 import discord  # import discord files?
 import random  # to generate random numbers
