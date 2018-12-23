@@ -62,7 +62,8 @@ class BamboozledTest:
         
         if message.content.startswith("<:thonking:455992031752355870>"):
             ctx = await self.bot.get_context(message)       # convert the result to bot class => ctx = bot.context
-
+            mood = random.randint(1,6)                      # generate a random mood like 
+                                                            # my cousin's wife
             await ctx.send(self.greeting[self.mood-1])                         # so that we can use ctx.send
 
 
@@ -73,6 +74,7 @@ class BamboozledTest:
             0.1. Saying "hello"
         """
 
+        mood = random.randint(1,6)
         await ctx.send(self.greeting[self.mood-1])       # array max index is n -1 
 
 # Sets up the cog
