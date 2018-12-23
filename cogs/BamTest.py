@@ -27,11 +27,14 @@ class BamboozledTest:
 
 
     @commands.command()
-    async def chao(self, ctx):
-        """ 0.1. Saying "hello"
+    async def ciao(self, ctx):
+        """ 0.2. Saying "hello" accordance to mood
+            0.1. Saying "hello"
         """
-        greeting = "Hello, my dude"
-        await ctx.send(greeting)
+
+        mood = 1             # will make it random
+        greeting1[2] = {"Hello, my dude","(╯°□°)╯︵ ┻━┻ GTFO"}
+        await ctx.send(greeting[mood])
 
 
 # Sets up the cog
