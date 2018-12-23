@@ -49,15 +49,15 @@ class BamboozledTest:
                 ]  
 
 
-    async def on_message(ctx): 
+    async def on_message(self, message): 
         """Defines bot behavior when a message is posted to channel"""
         # Do something
         # ctx == self, technically, but self is used for instance (or abstract, in C++) class
         #                           where ctx is used for methods 
         
-        if ctx.content.startswith("$bam"):
-            channel = ctx.channel
-            await channel.send("hello")
+        if message.content.startswith("$bam"):
+            ctx = await self.bot.get_context(message)
+            await ctx.send("hello")
 
 
 
