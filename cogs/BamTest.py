@@ -57,14 +57,14 @@ class BamboozledTest:
         await ctx.send(greeting[mood-1])       # array max index is n -1 
 
 
-    @client.event
-    async def on_message(message):
+#    @client.event
+#    async def on_message(message):
         """ testing. Respond on message
         """
-        mood = random.randint(1,6) 
-        if message.content.startswith(':thonking:'):
-            channel = message.channel
-            await channel.send(greeting[mood-1])
+ #       mood = random.randint(1,6) 
+ #       if message.content.startswith(':thonking:'):
+ #           channel = message.channel
+ #           await channel.send(greeting[mood-1])
 
 
 # Sets up the cog
