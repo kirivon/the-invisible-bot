@@ -57,17 +57,9 @@ class BamboozledTest:
         await ctx.send(greeting[mood-1])       # array max index is n -1 
 
 
-    @client.event
-    async def feels_on_message(self, ctx, message):
-        if message.content.startswith('$greet'):
-            channel = message.channel
-            await channel.send('Say hello!')
-
-            def check(m):
-                return m.content == 'hello' and m.channel == channel
-
-            msg = await client.wait_for('message', check=check)
-            await ctx.send('Hello {.author}!'.format(msg))
+    @bot.event
+    async def feels_on_message(message):
+        await channel.send('Say hello!')
 
 
 # Sets up the cog
