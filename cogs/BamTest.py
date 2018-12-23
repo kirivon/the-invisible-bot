@@ -62,7 +62,7 @@ class BamboozledTest:
         """ testing. Respond on message
         """
         mood = random.randint(1,6) 
-        if message.content.startswith(<:Ifeelyoubro:493539569699127307>):
+        if message.content.startswith(':Ifeelyoubro:493539569699127307'):
             channel = message.channel
             await channel.send(greeting[mood-1])
 
