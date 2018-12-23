@@ -40,7 +40,7 @@ class BamboozledTest:
 
 
     @commands.command()
-    async def ciao(self, ctx):
+    async def feel(self, ctx):
         """ 0.2. Greeting accordance to mood
             0.1. Saying "hello"
         """
@@ -49,22 +49,22 @@ class BamboozledTest:
                                                # my cousin's wife
         greeting = [    "(╯°□°)╯︵ ┻━┻ GTFO",
                         "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
-                        "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ Oh yeah, my dude!!!", 
+                        "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!", 
                         "( ︶︿︶)_╭∩╮ ",
-                        "| (• ◡•)| (❍ᴥ❍ʋ ) darn right",
+                        "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
                         "\"(Ó_Ò\")\"  oh....kay" 
                     ]
         await ctx.send(greeting[mood-1])       # array max index is n -1 
 
 
-#    @client.event
-#    async def on_message(message):
+    @client.event
+    async def on_message(message):
         """ testing. Respond on message
         """
- #       mood = random.randint(1,6) 
- #       if message.content.startswith(':thonking:'):
- #           channel = message.channel
- #           await channel.send(greeting[mood-1])
+        mood = random.randint(1,6) 
+        if message.content.startswith(<:Ifeelyoubro:493539569699127307>):
+            channel = message.channel
+            await channel.send(greeting[mood-1])
 
 
 # Sets up the cog
