@@ -1,5 +1,6 @@
 from datetime import datetime
 import discord
+import random
 from discord.ext import commands
 
 
@@ -75,8 +76,8 @@ class AlexTest:
         await ctx.send(msg)
 
 
-    @commands.command()
-    async def hug(self, ctx, user: discord.Member, intensity: int = 1):
+    @commands.command(no_pm=True, hidden=True)
+    async def hug(self, user: discord.Member, intensity: int = 1):
         """Because everyone likes hugs
         Up to 10 intensity levels."""
         name = user.display_name
@@ -90,8 +91,16 @@ class AlexTest:
             msg = "(つ≧▽≦)つ" + name
         elif intensity >= 10:
             msg = "(づ￣ ³￣)づ{} ⊂(´・ω・｀⊂)".format(name)
-        await ctx.send(msg)
+        await self.bot.say(msg)
 
+    @commands.command()
+    async def ed(self, ctx):
+        """ed function returns a random quote"""
+        edMessages = ['Alright _raises arms_ let\'s get started', 'hah hah. I\'m just testing you guys',
+                        'I swear I\'m not making this up', 'So the exam is today, right?', 'D\'aw you guys are no fun']
+        msg = random.choice(edMessages)
+        edmoji = " <:ed:505909298245926932> "
+        await ctx.send(edmoji + msg + edmoji)
 
 
 
