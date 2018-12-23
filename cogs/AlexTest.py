@@ -69,7 +69,7 @@ class AlexTest:
 
 
     @commands.command()
-    async def hug(self, ctx, user: discord.Member, intensity: int = 1):
+    async def hugs(self, ctx, user: discord.Member, intensity: int = 1):
         """Because everyone likes hugs Up to 10 intensity levels."""
         name = user.display_name
         if intensity <= 0:
