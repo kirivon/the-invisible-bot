@@ -120,9 +120,10 @@ class BamboozledTest:
         """
 
         activate_line = "sure "
+        mocking = message
         if message.content.startswith(activate_line):
             ctx = await self.bot.get_context(message)
-            await ctx.send(str(ctx))
+            await ctx.send(mocking)
 
     @commands.command()
     async def ciao(self, ctx):
