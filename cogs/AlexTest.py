@@ -106,6 +106,17 @@ class AlexTest:
             game = discord.Game("with unicode faces")
             await self.bot.change_presence(status=discord.Status.online, activity=game)
 
+    @commands.command()
+    async def getuptime(self, ctx):
+        current = datetime.utcnow()
+        delta = current - self.bot.uptime
+        hours, remainder = divmod(int(delta.total_seconds())), 3600)
+        minutes, seconds=divmod(remainder, 60)
+        days, hours=divmod(hours, 24)
+
+        msg='{} days, {} hours. {} minutes, and {} second'.format(days, hour, minutes, seconds))
+        await ctx.send(msg)
+
     @info.error
     async def info_error(self, ctx, error):
         """If user DNE, prints error"""
