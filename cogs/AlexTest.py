@@ -168,13 +168,13 @@ class AlexTest:
 
         if outcome is True:
             await ctx.send("{} You win {}!"
-                           "".format(red_choice.value, author.mention))
+                           "".format(uwu_choice.value, author.mention))
         elif outcome is False:
             await ctx.send("{} You lose {}!"
-                           "".format(red_choice.value, author.mention))
+                           "".format(uwu_choice.value, author.mention))
         else:
             await ctx.send("{} We're square {}!"
-                           "".format(red_choice.value, author.mention))
+                           "".format(uwu_choice.value, author.mention))
 
     @info.error
     async def info_error(self, ctx, error):
