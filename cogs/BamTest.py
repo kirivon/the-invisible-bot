@@ -82,7 +82,8 @@ class BamboozledTest:
     async def on_message(self, message):
         """Defines bot behavior when a message is posted to channel"""
 
-        if message.content.startswith(message):
+        activate_emoji = "<:thonking:455992031752355870> "
+        if message.content.startswith(activate_emoji):
             # convert the result to bot class => ctx = bot.context
             ctx = await self.bot.get_context(message)
 
