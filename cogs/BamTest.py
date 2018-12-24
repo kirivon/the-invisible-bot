@@ -88,11 +88,11 @@ class BamboozledTest:
             ctx = await self.bot.get_context(message)
 
             # make sure others can use more than 1 emoji without triggering uwu
-         """   repeat_count = 0
+            """   repeat_count = 0
             for index in xrange(1,10):
                 if ctx[index] == <:thonking:455992031752355870>:
                     repeat_count++; 
-                    """
+            """
             mood = 6                                  # generate a random mood like
                                                       # my cousin's wife
             await ctx.send(self.greeting[mood-1])     # we can use ctx.send
