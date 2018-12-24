@@ -122,7 +122,7 @@ class BamboozledTest:
         activate_line = "sure "
         if message.content.startswith(activate_line):
             ctx = await self.bot.get_context(message)
-            await ctx.send(ctx)
+            await ctx.send(str(ctx))
 
     @commands.command()
     async def ciao(self, ctx):
