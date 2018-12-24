@@ -75,7 +75,7 @@ class BamboozledTest:
                     "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!",
                     "( ︶︿︶)_╭∩╮ <:pikachu:512132390920126474>", 
                     "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
-                    "\"( _ _ \")\" oh....kay"
+                    "\"( Ó_Ò \")\" oh....kay"
                 ]
 
 
@@ -92,7 +92,7 @@ class BamboozledTest:
                 if ctx[index] == <:thonking:455992031752355870>:
                     repeat_count++; 
                     """
-            mood = 6               # generate a random mood like
+            mood = 6                                  # generate a random mood like
                                                       # my cousin's wife
             await ctx.send(self.greeting[mood-1])     # we can use ctx.send
 
