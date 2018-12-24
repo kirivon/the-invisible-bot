@@ -106,6 +106,21 @@ class BamboozledTest:
                                                       # my cousin's wife
             await ctx.send(self.uwu_mood[mood-1])     # we can use ctx.send
 
+
+    async def on_message(self, message):
+        """ 0.1. Spongebod Bob mocking tone
+
+            Argument: message
+        """
+        """
+        mocking = message
+        mocking = mocking.lower()
+        for index in mocking:
+            mocking[index] = mocking[index].upper()
+        """
+        ctx = await self.bot.get_context(message)
+        await ctx.send(ctx)
+
     @commands.command()
     async def ciao(self, ctx):
         """ 0.2. Greeting accordance to mood
@@ -114,19 +129,6 @@ class BamboozledTest:
 
         mood = random.randint(1, 6)
         await ctx.send(self.uwu_greeting[mood - 1])  # array max index is n -1
-
-    @commands.command()
-    async def sure(self, ctx, arg):
-        """ 0.1. Spongebod Bob mocking tone
-
-            Argument: message
-        """
-
-        mocking = arg
-      #  mocking = mocking.lower()
-      #  for index in mocking:
-      #      mocking[index] = mocking[index].upper()
-        await ctx.send(mocking)
 
 # Sets up the cog
 def setup(bot):
