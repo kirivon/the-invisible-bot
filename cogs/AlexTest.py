@@ -120,6 +120,7 @@ class AlexTest:
     async def _8ball(self, ctx, question: str):
         """Ask 8 ball a question
         Questions must end with a question mark.
+        Questions need double quotes "question here?"
         """
         if question.endswith("?") and question != "?":
             await ctx.send("`" + choice(self.ball) + "`")
