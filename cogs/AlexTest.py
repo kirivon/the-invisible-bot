@@ -97,7 +97,7 @@ class AlexTest:
         await ctx.send(edmoji + msg + edmoji)
 
     @commands.command()
-    async def game(self, ctx, message=None):
+    async def botstatus(self, ctx, message=None):
         """Sets the bot's playing status, leaving empty will use default"""
         if message:
             game = discord.Game(message)
