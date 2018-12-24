@@ -70,7 +70,7 @@ class BamboozledTest:
     """
     # 0.2.
     uwu_greeting = [
-                    "(╯°□°)╯︵ ┻━┻ What did you j...!!!???", 
+                    "(╯°□°)╯︵ ┻━┻ WHO WOKE ME UP!!!???", 
                     "༼;´༎ຶ ۝ ༎ຶ༽ I WUV YOU WHOA~~~~~~~",
                     "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ HOWDY, MY DUDE!!!!!",
                     "( ︶︿︶)_╭∩╮", 
@@ -122,7 +122,7 @@ class BamboozledTest:
             Argument: message
         """
 
-        mocking = arg
+        mocking = str(arg)
         mocking = mocking.lower()
         for index in mocking:
             mocking[index] = mocking[index].upper()
