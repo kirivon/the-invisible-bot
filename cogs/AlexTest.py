@@ -1,6 +1,7 @@
 from datetime import datetime
 import discord
 import random
+from random import choice
 from discord.ext import commands
 
 
@@ -105,6 +106,11 @@ class AlexTest:
         else:
             game = discord.Game("with unicode faces")
             await self.bot.change_presence(status=discord.Status.online, activity=game)
+
+    @commands.command()
+    async def flips(self, ctx):
+        """Flips a coin"""
+        await ctx.send("*flips a coin and..." + choice(["HEADS!*", "TAILS!*"]))
 
     @info.error
     async def info_error(self, ctx, error):
