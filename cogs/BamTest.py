@@ -122,7 +122,7 @@ class BamboozledTest:
             Argument: message
         """
 
-        mocking = arg
+        mocking = str(arg)
         mocking = mocking.lower()
         for index in mocking:
             mocking[index] = mocking[index].upper()
