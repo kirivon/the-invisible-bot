@@ -69,7 +69,16 @@ class BamboozledTest:
 
     """
     # 0.2.
-    greeting = [
+    uwu_greeting = [
+                    "(╯°□°)╯︵ ┻━┻ What did you j...!!!???", 
+                    "༼;´༎ຶ ۝ ༎ຶ༽ I WUV YOU WHOA~~~~~~~",
+                    "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ HOWDY, MY DUDE!!!!!",
+                    "( ︶︿︶)_╭∩╮", 
+                    "| (• ◡•)| (❍ᴥ❍ʋ ) what's up, mah homie!!??",
+                    "\"( Ó_Ò \")\" h...hi......."
+                ]
+
+    uwu_mood = [
                     "(╯°□°)╯︵ ┻━┻ GTFO", 
                     "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
                     "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!",
@@ -95,7 +104,7 @@ class BamboozledTest:
             
             mood = random.randint(1, 6)               # generate a random mood like
                                                       # my cousin's wife
-            await ctx.send(self.greeting[mood-1])     # we can use ctx.send
+            await ctx.send(self.uwu_mood[mood-1])     # we can use ctx.send
 
     @commands.command()
     async def ciao(self, ctx):
@@ -104,7 +113,7 @@ class BamboozledTest:
         """
 
         mood = random.randint(1, 6)
-        await ctx.send(self.greeting[mood - 1])  # array max index is n -1
+        await ctx.send(self.uwu_greeting[mood - 1])  # array max index is n -1
 
 
 # Sets up the cog
