@@ -96,6 +96,16 @@ class AlexTest:
         edmoji = " <:ed:505909298245926932> "
         await ctx.send(edmoji + msg + edmoji)
 
+    @commands.command()
+    async def game(self, ctx, message=None):
+        """Sets the bot's playing status, leaving empty will use default"""
+        if message:
+            game = discord.Game(message)
+            await self.bot.change_presence(status=discord.Status.online, activity=game)
+        else:
+            game = discord.Game("with unicode faces")
+            await self.bot.change_presence(status=discord.Status.online, activity=game)
+
     @info.error
     async def info_error(self, ctx, error):
         """If user DNE, prints error"""
