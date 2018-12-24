@@ -116,13 +116,13 @@ class BamboozledTest:
         await ctx.send(self.uwu_greeting[mood - 1])  # array max index is n -1
 
     @commands.command()
-    async def sure(self, ctx, arg)
+    async def sure(self, ctx, arg):
         """ 0.1. Spongebod Bob mocking tone
 
             Argument: message
         """
 
-        mocking = str(arg)
+        mocking = arg
         mocking = mocking.lower()
         for index in mocking:
             mocking[index] = mocking[index].upper()
