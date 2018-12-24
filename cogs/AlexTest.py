@@ -152,7 +152,7 @@ class AlexTest:
         """Play Rock Paper Sciccors with uwuBot"""
         author = ctx.message.author
         player_choice = user_choice.choice
-        uwu_choice = choice((RPS.rock, RPS.paper, RPS, scissors))
+        uwu_choice = choice((RPS.rock, RPS.paper, RPS.scissors))
         situations = {
             (RPS.rock,     RPS.paper): False,
             (RPS.rock,     RPS.scissors): True,
