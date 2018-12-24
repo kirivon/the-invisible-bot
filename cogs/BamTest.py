@@ -75,7 +75,7 @@ class BamboozledTest:
                     "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!",
                     "( ︶︿︶)_╭∩╮ <:pikachu:512132390920126474>", 
                     "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
-                    "\"( _ _ \")\" oh....kay"
+                    "\"(Ó_Ò \")\" oh....kay"
                 ]
 
 
