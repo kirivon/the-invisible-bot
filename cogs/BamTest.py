@@ -118,14 +118,18 @@ class BamboozledTest:
         for index in mocking:
             mocking[index] = mocking[index].upper()
         """
-        ctx = await self.bot.get_context(message)
-        await ctx.send(ctx)
+
+        activate_line = "sure "
+        if message.content.startswith(activate_line):
+            ctx = await self.bot.get_context(message)
+            await ctx.send(ctx)
 
     @commands.command()
     async def ciao(self, ctx):
         """ 0.2. Greeting accordance to mood
             0.1. Saying "hello"
         """
+
 
         mood = random.randint(1, 6)
         await ctx.send(self.uwu_greeting[mood - 1])  # array max index is n -1
