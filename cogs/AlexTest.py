@@ -124,7 +124,7 @@ class AlexTest:
         if question.endswith("?") and question != "?":
             await ctx.send("`" + choice(self.ball) + "`")
         else:
-            ctx.send("That does not look like a question.")
+            await ctx.send("That does not look like a question.")
 
     @info.error
     async def info_error(self, ctx, error):
