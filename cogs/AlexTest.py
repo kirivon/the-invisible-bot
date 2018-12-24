@@ -9,6 +9,10 @@ class AlexTest:
 
     def __init__(self, bot):
         self.bot = bot
+        self.ball = ["As I see it, yes", "It is certain", "It is decidedly so", "Most likely", "Outlook good",
+                     "Signs point to yes", "Without a doubt", "Yes", "Yes – definitely", "You may rely on it", "Reply hazy, try again",
+                     "Ask again later", "Better not tell you now", "Cannot predict now", "Concentrate and ask again",
+                     "Don't count on it", "My reply is no", "My sources say no", "Outlook not so good", "Very doubtful"]
 
     @commands.command()
     async def latency(self, ctx):
@@ -111,6 +115,16 @@ class AlexTest:
     async def flips(self, ctx):
         """Flips a coin"""
         await ctx.send("*flips a coin and..." + choice(["HEADS!*", "TAILS!*"]))
+
+    @commands.command()
+    async def _8ball(self, ctx, question: str):
+        """Ask 8 ball a question
+        Questions must end with a question mark.
+        """
+        if question.endswith("?") and question != "?":
+            await ctx.send("`" + choice(self.ball) + "`")
+        else:
+            ctx.send("That does not look like a question.")
 
     @info.error
     async def info_error(self, ctx, error):
