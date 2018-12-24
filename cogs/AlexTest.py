@@ -2,7 +2,27 @@ from datetime import datetime
 import discord
 import random
 from random import choice
+from enum import Enum
 from discord.ext import commands
+
+
+class RPS(Enum):
+    rock = "\N{MOYAI}"
+    paper = "\N{PAGE FACING UP}"
+    scissors = "\N{BLACK SCISSORS}"
+
+
+class RPSParser:
+    def __init__(self, argument):
+        argument = argument.lower()
+        if argument == "rock":
+            self.choice = RPS.rock
+        elif argument == "paper":
+            self.choice = RPS.paper
+        elif argument == "scissors":
+            self.choice = RPS.scissors
+        else:
+            raise
 
 
 class AlexTest:
@@ -126,6 +146,35 @@ class AlexTest:
             await ctx.send("`" + choice(self.ball) + "`")
         else:
             await ctx.send("That does not look like a question.")
+
+    @commands.command()
+    async def rps(self, ctx, user_choice: RPSParser):
+        """Play Rock Paper Sciccors with uwuBot"""
+        author = ctx.message.author
+        player_choice = user_choice.choice
+        uwu_choice = choice((RPS.rock, RPS.paper, RPS, scissors))
+        situations = {
+            (RPS.rock,     RPS.paper): False,
+            (RPS.rock,     RPS.scissors): True,
+            (RPS.paper,    RPS.rock): True,
+            (RPS.paper,    RPS.scissors): False,
+            (RPS.scissors, RPS.rock): False,
+            (RPS.scissors, RPS.paper): True
+        }
+        if uwu_choice == player_choice:
+            outcome = None  # Tie
+        else:
+            outcome = situations[(player_choice, uwu_choice)]
+
+        if outcome is True:
+            await ctx.send("{} You win {}!"
+                           "".format(red_choice.value, author.mention))
+        elif outcome is False:
+            await ctx.send("{} You lose {}!"
+                           "".format(red_choice.value, author.mention))
+        else:
+            await ctx.send("{} We're square {}!"
+                           "".format(red_choice.value, author.mention))
 
     @info.error
     async def info_error(self, ctx, error):
