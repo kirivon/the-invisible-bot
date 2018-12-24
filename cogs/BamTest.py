@@ -50,10 +50,6 @@ class BamboozledTest:
                  bot):  # view:python3 is good, view: python is bad for sublime
         self.bot = bot
 
-    mood = random.randint(1, 6)  # generate a random mood like
-    # my cousin's wife
-
-
     # =============================================================================
     # Types and constants
     # =============================================================================
