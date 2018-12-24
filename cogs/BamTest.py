@@ -93,7 +93,7 @@ class BamboozledTest:
             #    if ctx[index] == <:thonking:455992031752355870>:
             #        repeat_count++; 
             
-            mood = 6                                  # generate a random mood like
+            mood = random.randint(1, 6)               # generate a random mood like
                                                       # my cousin's wife
             await ctx.send(self.greeting[mood-1])     # we can use ctx.send
 
