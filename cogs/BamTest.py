@@ -122,10 +122,10 @@ class BamboozledTest:
             Argument: message
         """
 
-        mocking = str(arg)
-        mocking = mocking.lower()
-        for index in mocking:
-            mocking[index] = mocking[index].upper()
+        mocking = arg
+      #  mocking = mocking.lower()
+      #  for index in mocking:
+      #      mocking[index] = mocking[index].upper()
         await ctx.send(mocking)
 
 # Sets up the cog
