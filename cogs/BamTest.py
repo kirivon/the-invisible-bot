@@ -75,19 +75,27 @@ class BamboozledTest:
                     "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!",
                     "( ︶︿︶)_╭∩╮ <:pikachu:512132390920126474>", 
                     "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
-                    "\"( _ _ \")\" oh....kay"
+                    "\"( \_ \_ \")\" oh....kay"
                 ]
 
 
     async def on_message(self, message):
         """Defines bot behavior when a message is posted to channel"""
 
-        if message.content.startswith("<:thonking:455992031752355870> "):
+        activate_emoji = "<:thonking:455992031752355870> "
+        if message.content.startswith(activate_emoji):
             # convert the result to bot class => ctx = bot.context
             ctx = await self.bot.get_context(message)
-            mood = random.randint(1, 6)           # generate a random mood like
-            # my cousin's wife
-            await ctx.send(self.greeting[mood-1])  # we can use ctx.send
+
+            # make sure others can use more than 1 emoji without triggering uwu
+         """   repeat_count = 0
+            for index in xrange(1,10):
+                if ctx[index] == <:thonking:455992031752355870>:
+                    repeat_count++; 
+                    """
+            mood = 6               # generate a random mood like
+                                                      # my cousin's wife
+            await ctx.send(self.greeting[mood-1])     # we can use ctx.send
 
     @commands.command()
     async def ciao(self, ctx):
