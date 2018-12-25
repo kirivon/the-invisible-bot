@@ -110,25 +110,10 @@ class BamboozledTest:
             0.1. Saying "hello"
         """
 
-
         mood = random.randint(1, 6)
         await ctx.send(self.uwu_greeting[mood - 1])  # array max index is n -1
 
-   """ @commands.command()
-    async def sure(self, ctx, arg):
-        """ #0.1. Spongebod Bob mocking tone
 
-            #Argument: message
-        """
-
-        mocking = arg                       
-        mocking = mocking.lower()               # lower case everything
-        for index in mocking:
-            odds = random.randint(1,3)
-            if odds == 2:
-                mocking[index] = mocking[index].upper()
-        await ctx.send(mocking)
-"""
 # Sets up the cog
 def setup(bot):
     bot.add_cog(BamboozledTest(bot))
