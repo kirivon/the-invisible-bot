@@ -86,6 +86,13 @@ class BamboozledTest:
                     "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
                     "\"( Ó_Ò \")\" oh....kay"
                 ]
+    # =============================================================================
+
+    # =============================================================================
+    # Trigger commands
+    # =============================================================================    
+    bot = commands.self.bot(command_prefix="sure")
+    # =============================================================================    
 
 
     async def on_message(self, message):
@@ -106,8 +113,18 @@ class BamboozledTest:
                                                       # my cousin's wife
             await ctx.send(self.uwu_mood[mood-1])     # we can use ctx.send
 
+    @commands.command()
+    async def ciao(self, ctx):
+        """ 0.2. Greeting accordance to mood
+            0.1. Saying "hello"
+        """
 
-    async def on_message(self, message):
+
+        mood = random.randint(1, 6)
+        await ctx.send(self.uwu_greeting[mood - 1])  # array max index is n -1
+
+    @commands.command()
+    async def sure(ctx, *args):
         """ 0.1. Spongebod Bob mocking tone
 
             Argument: message
@@ -118,22 +135,14 @@ class BamboozledTest:
         for index in mocking:
             mocking[index] = mocking[index].upper()
         """
-
+        """
         activate_line = "sure "
         mocking = message
         if message.content.startswith(activate_line):
             ctx = await self.bot.get_context(message)
             await ctx.send(mocking)
-
-    @commands.command()
-    async def ciao(self, ctx):
-        """ 0.2. Greeting accordance to mood
-            0.1. Saying "hello"
         """
-
-
-        mood = random.randint(1, 6)
-        await ctx.send(self.uwu_greeting[mood - 1])  # array max index is n -1
+        await ctx.send(args)
 
 # Sets up the cog
 def setup(bot):
