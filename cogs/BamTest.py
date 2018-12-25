@@ -116,9 +116,9 @@ class BamboozledTest:
 
    """ @commands.command()
     async def sure(self, ctx, arg):
-        """ 0.1. Spongebod Bob mocking tone
+        """ #0.1. Spongebod Bob mocking tone
 
-            Argument: message
+            #Argument: message
         """
 
         mocking = arg                       
