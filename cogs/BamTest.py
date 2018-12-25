@@ -121,11 +121,11 @@ class BamboozledTest:
         """
 
         mocking = arg                       
-        #mocking = mocking.lower()               # lower case everything
-        #for index in mocking:
-        #    odds = random.randint(1,3)
-        #    if odds == 2:
-        #        mocking[index] = mocking[index].upper()
+        mocking = mocking.lower()               # lower case everything
+        for index in mocking:
+            odds = random.randint(1,3)
+            if odds == 2:
+                mocking[index] = mocking[index].upper()
         await ctx.send(mocking)
 
 # Sets up the cog
