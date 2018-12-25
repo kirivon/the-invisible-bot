@@ -103,6 +103,7 @@ class BamboozledTest:
                                                       # my cousin's wife
             await ctx.send(self.uwu_mood[mood-1])     # we can use ctx.send
 
+  
     @commands.command()
     async def ciao(self, ctx):
         """ 0.2. Greeting accordance to moods
@@ -119,20 +120,14 @@ class BamboozledTest:
 
             Argument: message
         """
-        """
-        mocking = message
-        mocking = mocking.lower()
+
+        mocking = arg                       
+        mocking = mocking.lower()               # lower case everything
         for index in mocking:
-            mocking[index] = mocking[index].upper()
-        """
-        """
-        activate_line = "sure "
-        mocking = message
-        if message.content.startswith(activate_line):
-            ctx = await self.bot.get_context(message)
-            await ctx.send(mocking)
-        """
-        await ctx.send(arg)
+            odds = random.randint(1,3)
+            if odds == 2:
+                mocking[index] = mocking[index].upper()
+        await ctx.send(mocking)
 
 # Sets up the cog
 def setup(bot):
