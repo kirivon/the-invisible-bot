@@ -124,7 +124,7 @@ class BamboozledTest:
         await ctx.send(self.uwu_greeting[mood - 1])  # array max index is n -1
 
     @commands.command()
-    async def sure(ctx, *args):
+    async def sure(self, ctx, arg):
         """ 0.1. Spongebod Bob mocking tone
 
             Argument: message
@@ -142,7 +142,7 @@ class BamboozledTest:
             ctx = await self.bot.get_context(message)
             await ctx.send(mocking)
         """
-        await ctx.send(args)
+        await ctx.send(arg)
 
     bot.add_command(sure)
 
