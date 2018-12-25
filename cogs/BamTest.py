@@ -132,7 +132,7 @@ class BamboozledTest:
 
         mocking = mocking.upper()                           # python does allow this
         """
-        mocking = ''.join(choice((str.upper, str.lower))(index) for index in mocking(1, mocking.len()))
+        mocking = ''.join(choice((str.upper, str.lower))(index) for index in mocking(1, mocking.len()-1))
         await ctx.send("(　ﾟДﾟ)＜!! {}".format(mocking))
         
 
