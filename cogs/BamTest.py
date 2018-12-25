@@ -134,8 +134,6 @@ class BamboozledTest:
         """
         await ctx.send(arg)
 
-    bot.add_command(sure)
-
 # Sets up the cog
 def setup(bot):
     bot.add_cog(BamboozledTest(bot))
