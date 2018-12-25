@@ -86,36 +86,35 @@ class BamboozledTest:
                     "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
                     "\"( Ó_Ò \")\" oh....kay"
                 ]
-    # =============================================================================
-
-    # =============================================================================
-    # Trigger commands
-    # =============================================================================    
-    bot = commands.Bot(command_prefix="sure ")
-    # =============================================================================    
 
 
     async def on_message(self, message):
-        """Defines bot behavior when a message is posted to channel"""
+        """ 0.1 giving out opnions accordance to moods
+
+            outline: 1. if the content starts with :thonking
+                        a. count if there is only 1 :thonking
+                        b. if there is only, run the fortune of wheel to generate an opinion
+        """
 
         activate_emoji = "<:thonking:455992031752355870> "
+        # make sure others can use more than 1 emoji without triggering uwu
+        repeat_count = 0
+ 
         if message.content.startswith(activate_emoji):
-            # convert the result to bot class => ctx = bot.context
-            ctx = await self.bot.get_context(message)
-
-            # make sure others can use more than 1 emoji without triggering uwu
-            #   repeat_count = 0
-            #for index in xrange(1,10):
-            #    if ctx[index] == <:thonking:455992031752355870>:
-            #        repeat_count++; 
-            
-            mood = random.randint(1, 6)               # generate a random mood like
-                                                      # my cousin's wife
-            await ctx.send(self.uwu_mood[mood-1])     # we can use ctx.send
+            repeat_count += 1
+            for index in message.content:
+                if message.content[index] == <:thonking:455992031752355870>:
+                    repeat_count +=1
+            if repeat_count == 1:              
+                # convert the result to bot class => ctx = bot.context
+                ctx = await self.bot.get_context(message)
+                mood = random.randint(1, 6)               # generate a random mood like
+                                                          # my cousin's wife
+                await ctx.send(self.uwu_mood[mood-1])     # we can use ctx.send
 
     @commands.command()
     async def ciao(self, ctx):
-        """ 0.2. Greeting accordance to mood
+        """ 0.2. Greeting accordance to moods
             0.1. Saying "hello"
         """
 
