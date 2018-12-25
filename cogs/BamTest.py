@@ -132,8 +132,11 @@ class BamboozledTest:
 
         mocking = mocking.upper()                           # python does allow this
         """
+        mocking = mocking.lower()
+        mocking_first_letter = mocking[0]
+        mocking = mocking[1:]
         mocking = ''.join(choice((str.upper, str.lower))(index) for index in mocking)
-        await ctx.send("(　ﾟДﾟ)＜!!        **{}**".format(mocking))
+        await ctx.send("凸(｀0´)凸        *{} {}*".format(mocking_first_letter, mocking))
         
 
 # Sets up the cog
