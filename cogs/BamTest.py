@@ -122,13 +122,17 @@ class BamboozledTest:
 
         mocking = arg 
         """                      
-        mocking = mocking.lower()               # lower case everything
         for index in mocking:
             odds = random.randint(1,3)
             if odds == 2:
-                mocking[index] = mocking[index].upper()
+                mocking[index] = mocking[index].upper()     # python does NOT allow this
+        
+        for index in mocking:
+            mocking[index] = mocking[index].upper()         # python does NOT allow this
+
+        mocking = mocking.upper()                           # python does allow this
         """
-        await ctx.send(mocking[2])
+        await ctx.send(''.join((str.upper, str.lower))(index) for index in mocking)
         
 
 # Sets up the cog
