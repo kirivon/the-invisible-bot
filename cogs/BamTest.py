@@ -101,9 +101,8 @@ class BamboozledTest:
         repeat_count = 0
  
         if message.content.startswith(activate_emoji):
-            repeat_count += 1
             for index in message.content:
-                if message.content[index] == <:thonking:455992031752355870>:
+                if message.content[index] == activate_emoji:
                     repeat_count +=1
             if repeat_count == 1:              
                 # convert the result to bot class => ctx = bot.context
