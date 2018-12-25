@@ -136,7 +136,8 @@ class BamboozledTest:
         mocking_first_letter = mocking[0]
         mocking = mocking[1:]
         mocking = ''.join(choice((str.upper, str.lower))(index) for index in mocking)
-        await ctx.send("凸(｀0´)凸        *{} {}*".format(mocking_first_letter, mocking))
+        Spongebod = "<:mockingspongebobbb:526939558915604490>"
+        await ctx.send("*{}{}*   {}".format(mocking_first_letter, mocking, Spongebod))
         
 
 # Sets up the cog
