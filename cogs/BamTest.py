@@ -124,7 +124,7 @@ class BamboozledTest:
         await ctx.send(self.uwu_greeting[mood - 1])  # array max index is n -1
 
     @commands.command()
-    async def sure(ctx, *args):
+    async def sure(self, ctx, *args):
         """ 0.1. Spongebod Bob mocking tone
 
             Argument: message
