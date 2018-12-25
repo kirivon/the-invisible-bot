@@ -97,19 +97,11 @@ class BamboozledTest:
         """
 
         activate_emoji = "<:thonking:455992031752355870> "
-        # make sure others can use more than 1 emoji without triggering uwu
-        repeat_count = 0
- 
         if message.content.startswith(activate_emoji):
-            for index in message.content:
-                if message.content[index] == activate_emoji:
-                    repeat_count +=1
-            if repeat_count == 1:              
-                # convert the result to bot class => ctx = bot.context
-                ctx = await self.bot.get_context(message)
-                mood = random.randint(1, 6)               # generate a random mood like
-                                                          # my cousin's wife
-                await ctx.send(self.uwu_mood[mood-1])     # we can use ctx.send
+            ctx = await self.bot.get_context(message)
+            mood = random.randint(1, 6)               # generate a random mood like
+                                                      # my cousin's wife
+            await ctx.send(self.uwu_mood[mood-1])     # we can use ctx.send
 
     @commands.command()
     async def ciao(self, ctx):
