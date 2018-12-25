@@ -128,7 +128,7 @@ class BamboozledTest:
             if odds == 2:
                 mocking[index] = mocking[index].upper()
         """
-        await ctx.send(mocking[index])
+        await ctx.send(mocking)
         
 
 # Sets up the cog
