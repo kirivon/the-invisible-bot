@@ -116,6 +116,7 @@ class BamboozledTest:
     @commands.command()
     async def sure(self, ctx, arg):
         """ # 0.1. Spongebod Bob mocking tone = randomly capitalize letters
+        https://cdn.discordapp.com/attachments/505902755097870346/527064513120436235/image0.png
 
             Incoming: 0.2 replace some letters with different letters to increase mocking for example
             "good" = "gud"
