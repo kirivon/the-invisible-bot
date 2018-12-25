@@ -7,7 +7,7 @@
 import discord  # import discord files?
 import random  # to generate random numbers
 from discord.ext import commands  # import commands from it?
-
+from random import choice
 # from redis import Redis, RedisError # maybe not
 
 # =============================================================================
