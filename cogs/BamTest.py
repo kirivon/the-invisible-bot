@@ -140,8 +140,10 @@ class BamboozledTest:
         mocking_first_letter = mocking[0]
         mocking = mocking[1:]
         mocking = ''.join(choice((str.upper, str.lower))(index) for index in mocking)
-        # Spongebob = "<:mockingspongebobbb:526939558915604490>"
-        await ctx.send("*{}{}*   {}".format(mocking_first_letter, mocking))
+        spongebob_meme = "https://cdn.discordapp.com/attachments/505902755097870346/527064513120436235/image0.png"
+        await ctx.send("{} \n *{}{}*   {}".format(spongebob_meme, 
+                                                  mocking_first_letter, 
+                                                  mocking))
         
 
 # Sets up the cog
