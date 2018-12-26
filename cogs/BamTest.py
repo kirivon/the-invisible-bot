@@ -71,7 +71,7 @@ class BamboozledTest:
     # 0.2.
     uwu_greeting = [
                     "(╯°□°)╯︵ ┻━┻ WHO WOKE ME UP!!!???", 
-                    "༼;´༎ຶ ۝ ༎ຶ༽ I WUV YOU WHOA~~~~~~~",
+                    "༼;´༎ຶ ۝ ༎ຶ༽ I'M NOT IGNORED~~~~~~~",
                     "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ HOWDY, MY DUDE!!!!!",
                     "( ︶︿︶)_╭∩╮", 
                     "| (• ◡•)| (❍ᴥ❍ʋ ) what's up, mah homie!!??",
