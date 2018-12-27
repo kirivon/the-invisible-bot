@@ -221,12 +221,6 @@ class AlexTest:
             em.set_author(name=user)
             await ctx.send(embed=em)
 
-    @info.error
-    async def info_error(self, ctx, error):
-        """If user DNE, prints error"""
-        if isinstance(error, commands.BadArgument):
-            await ctx.send('I could not find that member')
-
 
 # Sets up the cog
 def setup(bot):
