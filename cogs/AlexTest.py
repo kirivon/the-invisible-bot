@@ -67,10 +67,29 @@ class AlexTest:
         )
 
     @commands.command()
-    async def avatar(self, ctx, user: discord.User):
-        """Create URL of the persons avatar"""
-        msg = " URL being created for user ( ͡°( ͡° ͜ʖ( ͡° ͜ʖ ͡°)ʖ ͡°) ͡°) " + user.avatar_url
-        await ctx.send(msg)
+    async def avatar(self, ctx, txt: str = None):
+        """Creates big boi of users avatar"""
+        if txt:
+            try:
+                user = ctx.message.mentions[0]
+            except IndexError:
+                user = ctx.guild.get_member_named(txt)
+            if not user:
+                user = ctx.guild.get_member(int(txt))
+            if not user:
+                user = self.bot.get_user(int(txt))
+            if not user:
+                await ctx.send('Could not find user.')
+                return
+        else:
+            user = ctx.message.author
+        if user.avatar_url_as(static_format='png')[54:].startswith('a_'):
+            avi = user.avatar_url.rsplit("?", 1)[0]
+        else:
+            avi = user.avatar_url_as(static_format='png')
+        em = discord.Embed(colour=0x708DD0)
+        em.set_image(url=avi)
+        await ctx.send(embed=em)
 
     @commands.command()
     async def hugs(self, ctx, user: discord.Member, intensity: int = 1):
