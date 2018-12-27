@@ -9,14 +9,21 @@ from enum import Enum
 from discord.ext import commands
 
 
-class davidTest:
+class DavidTest:
+
     def __init__(self, bot):
         self.bot = bot
 
     @commands.command()
-    async def ping():
+    async def ping(self, ctx):
+        """Bot command that displays pong"""
         await ctx.send("Pong (b ᵔ▽ᵔ)b")
+
+
+
+
+
 
 # Sets up the cog
 def setup(bot):
-    bot.add_cog(davidTest(bot))
+    bot.add_cog(DavidTest(bot))
