@@ -29,10 +29,15 @@ class AlexTest:
 
     def __init__(self, bot):
         self.bot = bot
-        self.ball = ["As I see it, yes", "It is certain", "It is decidedly so", "Most likely", "Outlook good",
-                     "Signs point to yes", "Without a doubt", "Yes", "Yes – definitely", "You may rely on it", "Reply hazy, try again",
-                     "Ask again later", "Better not tell you now", "Cannot predict now", "Concentrate and ask again",
-                     "Don't count on it", "My reply is no", "My sources say no", "Outlook not so good", "Very doubtful"]
+        self.ball = ["As I see it, yes", "It is certain", "It is decidedly so",
+                     "Most likely", "Outlook good", "Signs point to yes",
+                     "Without a doubt", "Yes", "Yes – definitely",
+                     "You may rely on it", "Reply hazy, try again",
+                     "Ask again later", "Better not tell you now",
+                     "Cannot predict now", "Concentrate and ask again",
+                     "Don't count on it", "My reply is no",
+                     "My sources say no",
+                     "Outlook not so good", "Very doubtful"]
 
     @commands.command()
     async def latency(self, ctx):
@@ -63,7 +68,7 @@ class AlexTest:
             return
         # pylint: disable=W1401
         await ctx.send(
-            f"{member} is beNNed  ̿̿ ̿̿ ̿̿ ̿'̿'\̵͇̿̿\з= ( ▀ ͜͞ʖ▀) =ε/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿ !"
+            f"{member} is beNNed ( ▀ ͜͞ʖ▀) !"
         )
 
     @commands.command()
@@ -125,11 +130,13 @@ class AlexTest:
         """Sets the bot's playing status, leaving empty will use default"""
         if message:
             game = discord.Game(message)
-            await self.bot.change_presence(status=discord.Status.online, activity=game)
+            await self.bot.change_presence(status=discord.Status.online,
+                                           activity=game)
             await ctx.send("set bot status to..." + message)
         else:
             game = discord.Game("with unicode faces")
-            await self.bot.change_presence(status=discord.Status.online, activity=game)
+            await self.bot.change_presence(status=discord.Status.online,
+                                           activity=game)
 
     @commands.command()
     async def flips(self, ctx):
@@ -192,20 +199,27 @@ class AlexTest:
                 em = discord.Embed(title='Role Info', color=role.color)
                 em.add_field(name='Name', value=role.name)
                 em.add_field(name='ID', value=role.id, inline=False)
-                em.add_field(name='Users in this role', value=str(len(role.members)))
-                em.add_field(name='Role color hex value', value=str(role.color))
-                em.add_field(name='Role color RGB value', value=role.color.to_rgb())
+                em.add_field(name='Users in this role',
+                             value=str(len(role.members)))
+                em.add_field(name='Role color hex value',
+                             value=str(role.color))
+                em.add_field(name='Role color RGB value',
+                             value=role.color.to_rgb())
                 em.add_field(name='Mentionable', value=role.mentionable)
                 if len(role.members) >= 1:
-                    em.add_field(name='All users', value=all_users, inline=False)
+                    em.add_field(name='All users', value=all_users,
+                                 inline=False)
                 else:
                     em.add_field(name='All users',
-                                 value='There are no users in this role!', inline=False)
-                em.add_field(name='Created at', value=role.created_at.__format__('%x at %X'))
+                                 value='There are no users in this role!',
+                                 inline=False)
+                em.add_field(name='Created at',
+                             value=role.created_at.__format__('%x at %X'))
                 em.set_thumbnail(
-                    url='http://www.colorhexa.com/{}.png'.format(str(role.color).strip("#")))
+                    url='http://www.colorhexa.com/{}.png'.format(
+                        str(role.color).strip("#")))
                 return await ctx.send(content=None, embed=em)
-        await ctx.send(self.bot.bot_prefix + 'Could not find role ``{}``'.format(msg))
+        await ctx.send('Could not find role ``{}``'.format(msg))
 
     @commands.command()
     async def userinfo(self, ctx, *, name=""):
@@ -236,7 +250,8 @@ class AlexTest:
                     role = "N/A"
                 voice_state = None if not user.voice else user.voice.channel
 
-            em = discord.Embed(timestamp=ctx.message.created_at, colour=0x708DD0)
+            em = discord.Embed(timestamp=ctx.message.created_at,
+                               colour=0x708DD0)
             em.add_field(name='User ID', value=user.id, inline=True)
             if isinstance(user, discord.Member):
                 em.add_field(name='Nick', value=user.nick, inline=True)
@@ -245,7 +260,8 @@ class AlexTest:
                 em.add_field(name='Game', value=user.activity, inline=True)
                 em.add_field(name='Highest Role', value=role, inline=True)
             em.add_field(name='Account Created',
-                         value=user.created_at.__format__('%A, %d. %B %Y @ %H:%M:%S'))
+                         value=user.created_at.__format__(
+                             '%A, %d. %B %Y @ %H:%M:%S'))
             if isinstance(user, discord.Member):
                 em.add_field(name='Join Date', value=user.joined_at.__format__(
                     '%A, %d. %B %Y @ %H:%M:%S'))
@@ -268,9 +284,11 @@ class AlexTest:
             if not member:
                 member = self.bot.get_user(int(user))
         if not member:
-            await ctx.send("That user couldn't be found. Please check your spelling and try again.")
+            await ctx.send("That user couldn't be found.Please check your" +
+                           " spelling and try again.")
         elif len(member.roles[1:]) >= 1:
-            embed = discord.Embed(title="{}'s roles".format(member.name), description="\n".join(
+            embed = discord.Embed(title="{}'s roles".format(member.name),
+                                  description="\n".join(
                 [x.name for x in member.roles[1:]]), colour=member.colour)
             await ctx.send("", embed=embed)
         else:
