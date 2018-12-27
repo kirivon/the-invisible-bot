@@ -192,7 +192,20 @@ class AlexTest:
     async def userinfo(self, ctx, *, name=""):
         """Get user info. Ex: uwu.userinfo @user"""
         if ctx.invoked_subcommand is None:
-            user = ctx.message.author
+            if name:
+                try:
+                    user = ctx.message.mentions[0]
+                except IndexError:
+                    user = ctx.guild.get_member_named(name)
+                if not user:
+                    user = ctx.guild.get_member(int(name))
+                if not user:
+                    user = self.bot.get_user(int(name))
+                if not user:
+                    await ctx.send('Could not find user.')
+                    return
+            else:
+                user = ctx.message.author
 
             if user.avatar_url_as(static_format='png')[54:].startswith('a_'):
                 avi = user.avatar_url.rsplit("?", 1)[0]
