@@ -16,12 +16,8 @@ class DavidTest:
 
     @commands.command()
     async def ping(self, ctx):
-        """Bot command that displays pong"""
+        """Bot command that displays pong."""
         await ctx.send("Pong (b ᵔ▽ᵔ)b")
-
-
-
-
 
 
 # Sets up the cog
