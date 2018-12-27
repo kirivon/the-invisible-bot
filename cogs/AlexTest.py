@@ -253,6 +253,29 @@ class AlexTest:
             em.set_author(name=user)
             await ctx.send(embed=em)
 
+    @commands.command()
+    async def myroles(self, ctx, *, user=None):
+        """Check the roles of a user."""
+        if not user:
+            member = ctx.message.author
+        else:
+            try:
+                member = ctx.message.mentions[0]
+            except IndexError:
+                member = ctx.guild.get_member_named(user)
+            if not member:
+                member = ctx.guild.get_member(int(user))
+            if not member:
+                member = self.bot.get_user(int(user))
+        if not member:
+            await ctx.send("That user couldn't be found. Please check your spelling and try again.")
+        elif len(member.roles[1:]) >= 1:
+            embed = discord.Embed(title="{}'s roles".format(member.name), description="\n".join(
+                [x.name for x in member.roles[1:]]), colour=member.colour)
+            await ctx.send("", embed=embed)
+        else:
+            await ctx.send("That user has no roles!")
+
 
 # Sets up the cog
 def setup(bot):
