@@ -199,9 +199,7 @@ class AlexTest:
                 em.add_field(name='Created at', value=role.created_at.__format__('%x at %X'))
                 em.set_thumbnail(
                     url='http://www.colorhexa.com/{}.png'.format(str(role.color).strip("#")))
-                await ctx.message.delete()
                 return await ctx.send(content=None, embed=em)
-        await ctx.message.delete()
         await ctx.send(self.bot.bot_prefix + 'Could not find role ``{}``'.format(msg))
 
     @info.error
