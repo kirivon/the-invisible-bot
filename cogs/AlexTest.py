@@ -47,20 +47,6 @@ class AlexTest:
         await ctx.send("ONE PUNCH! And " + user.mention + " is out! ლ(ಠ益ಠლ)")
 
     @commands.command()
-    async def info(self, ctx, member: discord.Member):
-        """Tells you some info about the member."""
-        if member is ctx.message.author:
-            pronoun = "Your"
-        else:
-            pronoun = "Their"
-        name = f"{member.name}#{member.discriminator}"
-        status = member.status
-        joined = member.joined_at
-        role = member.top_role
-        msg = "{0} name is {1}. {0} status is {2}. They joined at {3}. {0} rank is {4}."
-        await ctx.send(msg.format(pronoun, name, status, joined, role))
-
-    @commands.command()
     async def mentionable(self, ctx, role: discord.Role):
         """checks if a role is mentionable and then mentions them"""
         if role.mentionable:
@@ -201,6 +187,39 @@ class AlexTest:
                     url='http://www.colorhexa.com/{}.png'.format(str(role.color).strip("#")))
                 return await ctx.send(content=None, embed=em)
         await ctx.send(self.bot.bot_prefix + 'Could not find role ``{}``'.format(msg))
+
+    @commands.command()
+    async def userinfo(self, ctx, *, name=""):
+        """Get user info. Ex: uwu.userinfo @user"""
+        if ctx.invoked_subcommand is None:
+            user = ctx.message.author
+
+            if user.avatar_url_as(static_format='png')[54:].startswith('a_'):
+                avi = user.avatar_url.rsplit("?", 1)[0]
+            else:
+                avi = user.avatar_url_as(static_format='png')
+            if isinstance(user, discord.Member):
+                role = user.top_role.name
+                if role == "@everyone":
+                    role = "N/A"
+                voice_state = None if not user.voice else user.voice.channel
+
+            em = discord.Embed(timestamp=ctx.message.created_at, colour=0x708DD0)
+            em.add_field(name='User ID', value=user.id, inline=True)
+            if isinstance(user, discord.Member):
+                em.add_field(name='Nick', value=user.nick, inline=True)
+                em.add_field(name='Status', value=user.status, inline=True)
+                em.add_field(name='In Voice', value=voice_state, inline=True)
+                em.add_field(name='Game', value=user.activity, inline=True)
+                em.add_field(name='Highest Role', value=role, inline=True)
+            em.add_field(name='Account Created',
+                         value=user.created_at.__format__('%A, %d. %B %Y @ %H:%M:%S'))
+            if isinstance(user, discord.Member):
+                em.add_field(name='Join Date', value=user.joined_at.__format__(
+                    '%A, %d. %B %Y @ %H:%M:%S'))
+            em.set_thumbnail(url=avi)
+            em.set_author(name=user)
+            await ctx.send(embed=em)
 
     @info.error
     async def info_error(self, ctx, error):
