@@ -61,12 +61,6 @@ class AlexTest:
         await ctx.send(msg.format(pronoun, name, status, joined, role))
 
     @commands.command()
-    async def roles(self, ctx, member: discord.Member):
-        """Tells you a member's roles."""
-        msg = " {0}'s highest role is {0.top_role}."
-        await ctx.send(msg.format(member))
-
-    @commands.command()
     async def mentionable(self, ctx, role: discord.Role):
         """checks if a role is mentionable and then mentions them"""
         if role.mentionable:
@@ -176,6 +170,39 @@ class AlexTest:
         else:
             await ctx.send("{} We're square {}!"
                            "".format(uwu_choice.value, author.mention))
+
+    @commands.command()
+    async def roleinfo(self, ctx, msg):
+        """Get more info about a specific role.
+        You need to quote roles with spaces.
+        You may also specify a server to check the role for.
+        """
+        guild = ctx.message.guild
+        guild_roles = ctx.message.guild.roles
+        for role in guild_roles:
+            if msg.lower() == role.name.lower() or msg == role.id:
+                all_users = [str(x) for x in role.members]
+                all_users.sort()
+                all_users = ', '.join(all_users)
+                em = discord.Embed(title='Role Info', color=role.color)
+                em.add_field(name='Name', value=role.name)
+                em.add_field(name='ID', value=role.id, inline=False)
+                em.add_field(name='Users in this role', value=str(len(role.members)))
+                em.add_field(name='Role color hex value', value=str(role.color))
+                em.add_field(name='Role color RGB value', value=role.color.to_rgb())
+                em.add_field(name='Mentionable', value=role.mentionable)
+                if len(role.members) >= 1:
+                    em.add_field(name='All users', value=all_users, inline=False)
+                else:
+                    em.add_field(name='All users',
+                                 value='There are no users in this role!', inline=False)
+                em.add_field(name='Created at', value=role.created_at.__format__('%x at %X'))
+                em.set_thumbnail(
+                    url='http://www.colorhexa.com/{}.png'.format(str(role.color).strip("#")))
+                await ctx.message.delete()
+                return await ctx.send(content=None, embed=em)
+        await ctx.message.delete()
+        await ctx.send(self.bot.bot_prefix + 'Could not find role ``{}``'.format(msg))
 
     @info.error
     async def info_error(self, ctx, error):
