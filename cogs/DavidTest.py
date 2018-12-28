@@ -39,11 +39,13 @@ class DavidTest:
         # bomb & explode may not work as intended
         bomb = ":bomb:"
         explode = ":boom:"
-        timer = ['5', '4', '3', '2', '1']
+        time.sleep(1)
+        msg = await ctx.send("5.. ")
+        timer = ['4', '3', '2', '1']
         for num in timer:
             time.sleep(1)
-            print(bomb + num)
-        print(explode + "**B O O M**" + explode)
+            edit_message(msg, msg + num + ".. ")
+        await ctx.send(explode + "**B O O M**" + explode)
 
 
 # Sets up the cog
