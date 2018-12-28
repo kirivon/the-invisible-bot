@@ -45,6 +45,7 @@ class DavidTest:
             print(bomb + num)
         print(explode + "**B O O M**" + explode)
 
+
 # Sets up the cog
 def setup(bot):
     bot.add_cog(DavidTest(bot))
