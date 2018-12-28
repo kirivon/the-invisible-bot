@@ -36,8 +36,9 @@ class DavidTest:
     async def bomb(self, ctx):
         """Makes a second bomb that counts down and
            detonates in 5 seconds"""
-        bomb = " <:bomb:528012099251732481> "
-        explode = " <:boom:528013251284566023> "
+        # bomb & explode may not work as intended
+        bomb = ":bomb:"
+        explode = ":boom:"
         timer = ['5', '4', '3', '2', '1']
         for num in timer:
             time.sleep(1)
