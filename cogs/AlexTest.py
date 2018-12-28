@@ -298,24 +298,7 @@ class AlexTest:
     async def serverinfo(self, ctx, *, msg=""):
         """Various info about the server. [p]help server for more info."""
         if ctx.invoked_subcommand is None:
-            if msg:
-                server = None
-                try:
-                    float(msg)
-                    server = self.bot.get_guild(int(msg))
-                    if not server:
-                        return await ctx.send(
-                            'Server not found.')
-                except:
-                    for i in self.bot.guilds:
-                        if i.name.lower() == msg.lower():
-                            server = i
-                            break
-                    if not server:
-                        return await ctx.send('Could not find server. Note: You must be a member of the server you are trying to search.')
-            else:
-                server = ctx.message.guild
-
+            server = ctx.message.guild
             online = 0
             for i in server.members:
                 if str(i.status) == 'online' or str(i.status) == 'idle' or str(i.status) == 'dnd':
@@ -348,6 +331,22 @@ class AlexTest:
             em.set_author(name='Server Info', icon_url='https://i.imgur.com/K97C1Wh.png')
             em.set_footer(text='Server ID: %s' % server.id)
             await ctx.send(embed=em)
+            # if msg:
+            #     server = None
+            #     try:
+            #         float(msg)
+            #         server = self.bot.get_guild(int(msg))
+            #         if not server:
+            #             return await ctx.send(
+            #                 'Server not found.')
+            #     except:
+            #         for i in self.bot.guilds:
+            #             if i.name.lower() == msg.lower():
+            #                 server = i
+            #                 break
+            #         if not server:
+            #             return await ctx.send('Could not find server. Note: You must be a member of the server you are trying to search.')
+            # else:
 
 
 # Sets up the cog
