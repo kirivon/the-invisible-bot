@@ -96,7 +96,6 @@ class Help(formatter.HelpFormatter):
             reply = await self.bot.wait_for('message', check=is_me)
             try:
                 page_number = int(reply.content) - 1
-                await reply.delete()
                 if page_number < 0:
                     page_number = 0
                 elif page_number >= len(embeds):
