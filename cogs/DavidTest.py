@@ -24,9 +24,25 @@ class DavidTest:
 
     @commands.command()
     async def lootbox(self, ctx):
-        """Returns a random object from chest after 5 seconds"""
-        await ctx.send("Do Dododo! You got a " + choice(self.loot) + "!")
+        """Returns a random object from chest."""
+        rand = random.randint(1, 100000)
+        if rand % 2 == 0:
+            await ctx.send("Do Dododo! You got a " + choice(self.loot) + "!")
+        else:
+            money = str(random.randint(1, 1000000))
+            await ctx.send("Cha-Ching! You got " + money + " g")
 
+    @commands.command()
+    async def bomb(self, ctx):
+        """Makes a second bomb that counts down and
+           detonates in 5 seconds"""
+        bomb = " <:bomb:528012099251732481> "
+        explode = " <:boom:528013251284566023> "
+        timer = ['5', '4', '3', '2', '1']
+        for num in timer:
+            time.sleep(1)
+            print(bomb + num)
+        print(explode + "**B O O M**" + explode)
 
 # Sets up the cog
 def setup(bot):
