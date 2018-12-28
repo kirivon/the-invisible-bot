@@ -87,7 +87,7 @@ class Help(formatter.HelpFormatter):
         page_msg = await dest.send("There are {} help pages. Send a number to see the corresponding page. Send any other messageto exit.".format(len(embeds)))
 
         def is_me(msg):
-            if msg.author and msg.channel is dest:
+            if msg.channel is dest:
                 return True
         while True:
             await asyncio.sleep(.5)
