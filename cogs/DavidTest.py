@@ -43,6 +43,7 @@ class DavidTest:
         for num in timer:
             time.sleep(1)
             await ctx.send(bomb + num + ".. ")
+        time.sleep(1)
         await ctx.send(explode + "**B O O M**" + explode)
 
 
