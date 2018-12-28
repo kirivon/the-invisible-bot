@@ -3,6 +3,9 @@ All help messages will be embed and pretty.
 Most of the code stolen from
 discord.ext.commands.formatter.py and
 converted into embeds instead of codeblocks.
+Docstr on cog class becomes category.
+Docstr on command definition becomes command
+summary and usage.
 Use [p] in command docstr for bot prefix.
 See [p]help here for example.
 await bot.formatter.format_help_for(ctx, command)
@@ -25,7 +28,6 @@ import itertools
 
 
 empty = u'\u200b'
-
 
 _mentions_transforms = {
     '@everyone': '@\u200beveryone',
@@ -84,16 +86,17 @@ class Help(formatter.HelpFormatter):
             return await dest.send(content=content, embed=embed)
 
         help_msg = await dest.send(content=content, embed=embeds[0])
-        page_msg = await dest.send("There are {} help pages. Send a number to see the corresponding page. Send any other messageto exit.".format(len(embeds)))
+        page_msg = await dest.send("There are {} help pages. Send a number to see the corresponding page. Send any other message to exit.".format(len(embeds)))
 
         def is_me(msg):
-            if msg.channel is dest:
+            if msg.channel == dest:
                 return True
         while True:
             await asyncio.sleep(.5)
             reply = await self.bot.wait_for('message', check=is_me)
             try:
-                page_number = int(reply.content)
+                page_number = int(reply.content) - 1
+                await reply.delete()
                 if page_number < 0:
                     page_number = 0
                 elif page_number >= len(embeds):
@@ -176,14 +179,11 @@ class Help(formatter.HelpFormatter):
                 name = '{0}'.format(command.help.split('\n\n')[0])
                 name_length = len(name)
                 name = name.replace('[p]', self.clean_prefix)
-                value = command.help[name_length:].replace('[p]',
-                                                           self.clean_prefix)
+                value = command.help[name_length:].replace('[p]', self.clean_prefix)
                 if value == '':
                     name = '{0}'.format(command.help.split('\n')[0])
                     name_length = len(name)
-                    value = command.help[name_length:].replace
-                    ('[p]',
-                     self.clean_prefix)
+                    value = command.help[name_length:].replace('[p]', self.clean_prefix)
                 if value == '':
                     value = empty
                 if len(value) > 1024:
@@ -228,8 +228,7 @@ class Help(formatter.HelpFormatter):
 
                 commands = sorted(commands)
                 if len(commands) > 0:
-                    for count, subcommands in enumerate(self._add_subcommands
-                                                        (commands)):
+                    for count, subcommands in enumerate(self._add_subcommands(commands)):
                         field = {
                             'inline': False
                         }
@@ -299,8 +298,7 @@ class Help(formatter.HelpFormatter):
         embed.set_footer(**emb['footer'])
         await self.send(self.destination, embeds=embeds)
 
-    def simple_embed(self, title=None, description=None, color=None,
-                     author=None):
+    def simple_embed(self, title=None, description=None, color=None, author=None):
         # Shortcut
         embed = discord.Embed(title=title, description=description, color=color)
         embed.set_footer(text=self.bot.formatter.get_ending_note())
@@ -343,8 +341,7 @@ class Help(formatter.HelpFormatter):
             else:
                 command = self.bot_all_commands.get(name)
                 if command is None:
-                    await self.send(self.destination, embeds=[self.cmd_not_found
-                                                              (name, self.color)])
+                    await self.send(self.destination, embeds=[self.cmd_not_found(name, self.color)])
                     return
 
             await self.bot.formatter.format_help_for(ctx, command)
@@ -352,8 +349,7 @@ class Help(formatter.HelpFormatter):
             name = _mention_pattern.sub(repl, cmds[0])
             command = self.bot_all_commands.get(name)
             if command is None:
-                await self.send(self.destination, embeds=[self.cmd_not_found
-                                                          (name, self.color)])
+                await self.send(self.destination, embeds=[self.cmd_not_found(name, self.color)])
                 return
 
             for key in cmds[1:]:
@@ -361,16 +357,13 @@ class Help(formatter.HelpFormatter):
                     key = _mention_pattern.sub(repl, key)
                     command = command.all_commands.get(key)
                     if command is None:
-                        await self.send(self.destination,
-                                        embeds=[self.cmd_not_found
-                                                (key, self.color)])
+                        await self.send(self.destination, embeds=[self.cmd_not_found(key, self.color)])
                         return
                 except AttributeError:
                     await self.send(self.destination,
-                                    embeds=[self.simple_embed
-                                            (title='Command "{0.name}" has no subcommands.'.format(command),
-                                             color=self.color,
-                                             author=self.author)])
+                                    embeds=[self.simple_embed(title='Command "{0.name}" has no subcommands.'.format(command),
+                                                              color=self.color,
+                                                              author=self.author)])
                     return
 
             await self.bot.formatter.format_help_for(ctx, command)
