@@ -39,7 +39,7 @@ _mention_pattern = re.compile('|'.join(_mentions_transforms.keys()))
 
 
 orig_help = None
-wiki_link = '\nAlternatively, you may want to check out [the wiki](https://github.com/kirivon/the-invisible-bot/wiki) which will (eventually) have all the commands.'
+wiki_link = '\nAlternatively, you may want to check out [the wiki](https://github.com/kirivon/the-invisible-bot/wiki) which also has the full list of in-built commands.'
 
 
 class Help(formatter.HelpFormatter):
