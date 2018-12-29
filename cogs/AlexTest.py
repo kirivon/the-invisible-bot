@@ -4,6 +4,8 @@ import random
 from random import choice
 from enum import Enum
 from discord.ext import commands
+import os
+import psutil
 
 
 class RPS(Enum):
@@ -270,7 +272,7 @@ class AlexTest:
             await ctx.send(embed=em)
 
     @commands.command(aliases=['info', 'stats', 'status'])
-    async def about(self, ctx):
+    async def aboutbot(self, ctx):
         """ About the bot """
         ramUsage = self.process.memory_full_info().rss / 1024**2
         avgmembers = round(len(self.bot.users) / len(self.bot.guilds))
