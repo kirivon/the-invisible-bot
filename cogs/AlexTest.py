@@ -4,8 +4,6 @@ import random
 from random import choice
 from enum import Enum
 from discord.ext import commands
-import os
-import psutil
 
 
 class RPS(Enum):
