@@ -271,23 +271,6 @@ class AlexTest:
             em.set_author(name=user)
             await ctx.send(embed=em)
 
-    @commands.command(aliases=['info', 'stats', 'status'])
-    async def aboutbot(self, ctx):
-        """ About the bot """
-        ramUsage = self.process.memory_full_info().rss / 1024**2
-        avgmembers = round(len(self.bot.users) / len(self.bot.guilds))
-
-        em = discord.Embed(colour=ctx.me.top_role.colour)
-        em.set_thumbnail(url=ctx.bot.user.avatar_url)
-        em.add_field(name="Library", value="discord.py", inline=True)
-        em.add_field(
-            name="Servers", value=f"{len(ctx.bot.guilds)} ( avg: {avgmembers} users/server )", inline=True)
-        em.add_field(name="Commands loaded", value=len(
-            [x.name for x in self.bot.commands]), inline=True)
-        em.add_field(name="RAM", value=f"{ramUsage:.2f} MB", inline=True)
-
-        await ctx.send(content=f"ℹ About **{ctx.bot.user}**", embed=em)
-
     @commands.command()
     async def myroles(self, ctx, *, user=None):
         """Check the roles of a user."""
