@@ -82,7 +82,7 @@ class BamboozledTest:
                     "(╯°□°)╯︵ ┻━┻ GTFO", 
                     "༼;´༎ຶ ۝ ༎ຶ༽ *gasp",
                     "\m/...(>.<)…\m/ └[∵┌]└[ ∵ ]┘[┐∵]┘ OH YEAH, MY DUDE!!!!!",
-                    "( ︶︿︶)_╭∩╮ <:pikachu:512132390920126474>", 
+                    "( ︶︿︶)_╭∩╮", 
                     "| (• ◡•)| (❍ᴥ❍ʋ ) darn right, mah homie!",
                     "\"( Ó_Ò \")\" oh....kay"
                 ]
@@ -125,17 +125,7 @@ class BamboozledTest:
         """
 
         mocking = arg 
-        """                      
-        for index in mocking:
-            odds = random.randint(1,3)
-            if odds == 2:
-                mocking[index] = mocking[index].upper()     # python does NOT allow this
         
-        for index in mocking:
-            mocking[index] = mocking[index].upper()         # python does NOT allow this
-
-        mocking = mocking.upper()                           # python does allow this
-        """
         mocking = mocking.lower()
         mocking_first_letter = mocking[0]
         mocking = mocking[1:]
