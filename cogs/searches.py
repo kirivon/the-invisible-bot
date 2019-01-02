@@ -1,6 +1,7 @@
 import discord
 import json
 import urllib.request
+from redis import Redis, RedisError
 from discord.ext import commands
 
 
@@ -20,6 +21,19 @@ class Searches:
             GOOGLEAPIKEY = config["GoogleAPIKey"]
             SEARCHENGINEID = config["SearchEngineID"]
 
+        # Open connection to local redis server
+        redis = Redis(
+            host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
+
+        # Creates a key for the user's name that expires in 1 hour
+        if redis.get(ctx.author.name) == None:
+            redis.set(ctx.author.name, 1, ex=3600)
+        else:  # If the key exists, do not run the API search until it expires
+            msg = "Please wait " + str(redis.ttl(
+                ctx.author.name)) + " seconds before trying again."
+            await ctx.send(msg)
+            return
+
         searchstring = ""
         # Concocts the args into a single string
         if len(args) > 1:
@@ -34,7 +48,7 @@ class Searches:
             return
 
         # Defines URL for Google Custom Search JSON API
-        url = "https://www.googleapis.com/customsearch/v1?key={}&cx={}&num=1&q={}".format(
+        url = "https://www.googleapis.com/customsearch/v1?key={}&cx={}&num=1&q={}&searchType=image".format(
             GOOGLEAPIKEY, SEARCHENGINEID, searchstring)
         req = urllib.request.Request(url)
         with urllib.request.urlopen(req) as response:
