@@ -14,7 +14,8 @@ bot = commands.Bot(command_prefix=PREFIX)
 
 # Define extensions
 extensions = ["cogs.test", "cogs.AlexTest", "cogs.searches", "cogs.BamTest",
-              "cogs.BrianTest", "cogs.DavidTest", "cogs.help"]
+              "cogs.BrianTest", "cogs.DavidTest", "cogs.help",
+              "cogs.NickTest.py"]
 
 
 @bot.event
