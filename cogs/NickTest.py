@@ -12,7 +12,7 @@ class NickTest:
 		self.bot = bot
 
 	@commands.command()
-	async def choose(self, ctx, choices: str):
+	async def choose(self, ctx, choices):
 		"""Chooses user-defined set of choices
 			Usage: uwu.choose choose1;choose2;choose3;...;chooseN"""
 		myList = choices.split(";")
