@@ -13,9 +13,9 @@ class NickTest:
 
 	@commands.command()
 	async def choose(self, ctx, choices: str):
-		"""Chooses user-defined set of choices"""
-		"""Usage: uwu.choose choose1;choose2;choose3;...;chooseN"""
-		myList = choices.split(';')
+		"""Chooses user-defined set of choices
+			Usage: uwu.choose choose1;choose2;choose3;...;chooseN"""
+		myList = choices.split(";")
 		msg = random.choice(myList)
 		thonk = " <:thonking:455992031752355870> "
 		await ctx.send(thonk + msg)
