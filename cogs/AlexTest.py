@@ -46,6 +46,19 @@ class AlexTest:
         ping = round(ping_ * 1000)
         await ctx.send(f"Your ping is {ping}ms")
 
+    @commands.command(aliases=['servericon'], no_pm=True)
+    async def serverlogo(self, ctx):
+        """Returns the server's logo image"""
+        icon = ctx.guild.icon_url
+        em = discord.Embed(url=icon)
+        em.colour = (discord.Colour(0xed791d))
+        em.set_author(name=ctx.guild.name, icon_url=icon)
+        em.set_image(url=icon)
+        try:
+            await ctx.send(embed=em)
+        except:
+            return
+
     @commands.command()
     async def punch(self, ctx, user: discord.Member):
         """Punches the user mentioned"""
