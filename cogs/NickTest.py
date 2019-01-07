@@ -15,7 +15,7 @@ class NickTest:
 	async def choose(self, ctx, *args):
 		"""Chooses user-defined set of choices
 			Usage: uwu.choose choose1;choose2;choose3;...;chooseN"""
-		choices = args.join()
+		choices = ' '.join(args)
 		myList = choices.split(";")
 		msg = random.choice(myList)
 		thonk = " <:thonking:455992031752355870> "
