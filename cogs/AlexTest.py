@@ -1,9 +1,11 @@
 from datetime import datetime
+import datetime
 import discord
 import random
 from random import choice
 from enum import Enum
 from discord.ext import commands
+from discord.ext.commands import BucketType
 
 
 class RPS(Enum):
@@ -29,6 +31,7 @@ class AlexTest:
 
     def __init__(self, bot):
         self.bot = bot
+        self.uptime = datetime.datetime.utcnow()
         self.ball = ["As I see it, yes", "It is certain", "It is decidedly so",
                      "Most likely", "Outlook good", "Signs point to yes",
                      "Without a doubt", "Yes", "Yes – definitely",
@@ -45,6 +48,27 @@ class AlexTest:
         ping_ = self.bot.latency
         ping = round(ping_ * 1000)
         await ctx.send(f"Your ping is {ping}ms")
+
+    def get_uptime(self, full=False):
+        current_time = datetime.datetime.utcnow()
+        delta = current_time - self.uptime
+        hours, remainder = divmod(int(delta.total_seconds()), 3600)
+        minutes, seconds = divmod(remainder, 60)
+        days, hours = divmod(hours, 24)
+
+        if full:
+            return ('{} days, {} hours, {} minutes, and {} seconds'.
+                    format(days, hours, minutes, seconds))
+
+        else:
+            return ('{}d {}h {}m {}s'.
+                    format(days, hours, minutes, seconds))
+
+    @commands.command()
+    @commands.cooldown(1, 3, BucketType.user)
+    async def upt(self, ctx):
+        """Posts the bots uptime to the channel"""
+        await ctx.send('🔌 Uptime: **' + self.get_uptime(True) + '**')
 
     @commands.command(aliases=['servericon'], no_pm=True)
     async def serverlogo(self, ctx):
