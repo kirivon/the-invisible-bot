@@ -60,23 +60,6 @@ class AlexTest:
             return
 
     @commands.command()
-    async def emojiAlex(self, ctx):
-        """Testing on sending the emojis from Alexis server."""
-        all_emo = [str(x) for x in self.bot.emojis]
-        all_emo.sort()
-        all_emo = ', '.join(all_emo)
-        icon = ctx.guild.icon_url
-        em = discord.Embed(url=icon)
-        em.colour = (discord.Colour(0xed791d))
-        em.set_author(name=ctx.guild.name, icon_url=icon)
-        em.add_field(name="All Emojis", value=all_emo, inline=False)
-        em.set_footer(text="These emojis are on Alexis' Server")
-        try:
-            await ctx.send(embed=em)
-        except:
-            return
-
-    @commands.command()
     async def punch(self, ctx, user: discord.Member):
         """Punches the user mentioned"""
         await ctx.send("ONE PUNCH! And " + user.mention + " is out! ლ(ಠ益ಠლ)")
