@@ -60,6 +60,20 @@ class AlexTest:
             return
 
     @commands.command()
+    async def emojiAlex(self, ctx):
+        """Testing on sending the emojis from Alexis server."""
+        roosnow = " <:RooBlankFestive:527647008987676672> "
+        icon = ctx.guild.icon_url
+        em = discord.Embed(url=icon)
+        em.colour = (discord.Colour(0xed791d))
+        em.set_author(name=ctx.guild.name, icon_url=icon)
+        em.add_field(name="RooSnow", value=roosnow, inline=False)
+        try:
+            await ctx.send(embed=em)
+        except:
+            return
+
+    @commands.command()
     async def punch(self, ctx, user: discord.Member):
         """Punches the user mentioned"""
         await ctx.send("ONE PUNCH! And " + user.mention + " is out! ლ(ಠ益ಠლ)")
