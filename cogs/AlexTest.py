@@ -92,21 +92,21 @@ class AlexTest:
         except:
             return
 
-    @commands.command()
-    async def punch(self, ctx, user: discord.Member):
-        """Punches the user mentioned"""
-        await ctx.send("ONE PUNCH! And " + user.mention + " is out! ლ(ಠ益ಠლ)")
+    # @commands.command()
+    # async def punch(self, ctx, user: discord.Member):
+    #     """Punches the user mentioned"""
+    #     await ctx.send("ONE PUNCH! And " + user.mention + " is out! ლ(ಠ益ಠლ)")
 
-    @commands.command()
-    async def benhammer(self, ctx, member: discord.Member):
-        """A test ban function, does not actually ban just sends a message"""
-        if member is ctx.message.author:
-            await ctx.channel.send("You cannot ban yourself!")
-            return
-        # pylint: disable=W1401
-        await ctx.send(
-            f"{member} is beNNed ( ▀ ͜͞ʖ▀) !"
-        )
+    # @commands.command()
+    # async def benhammer(self, ctx, member: discord.Member):
+    #     """A test ban function, does not actually ban just sends a message"""
+    #     if member is ctx.message.author:
+    #         await ctx.channel.send("You cannot ban yourself!")
+    #         return
+    #     # pylint: disable=W1401
+    #     await ctx.send(
+    #         f"{member} is beNNed ( ▀ ͜͞ʖ▀) !"
+    #     )
 
     @commands.command()
     async def avatar(self, ctx, txt: str = None):
@@ -186,10 +186,10 @@ class AlexTest:
             await self.bot.change_presence(status=discord.Status.online,
                                            activity=game)
 
-    @commands.command()
-    async def flips(self, ctx):
-        """Flips a coin"""
-        await ctx.send("*flips a coin and..." + choice(["HEADS!*", "TAILS!*"]))
+    # @commands.command()
+    # async def flips(self, ctx):
+    #     """Flips a coin"""
+    #     await ctx.send("*flips a coin and..." + choice(["HEADS!*", "TAILS!*"]))
 
     @commands.command()
     async def _8ball(self, ctx, question: str):
