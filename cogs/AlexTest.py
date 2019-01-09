@@ -42,6 +42,15 @@ class AlexTest:
                      "My sources say no",
                      "Outlook not so good", "Very doubtful"]
 
+    @staticmethod
+    async def dm_author(ctx, message):
+        """Send dm to author, else in channel"""
+        try:
+            await ctx.author.send(message)
+
+        except discord.Forbidden:
+            await ctx.send(message)
+
     @commands.command()
     async def latency(self, ctx):
         """Bot command that returns the latency in ms"""
@@ -87,15 +96,6 @@ class AlexTest:
     async def punch(self, ctx, user: discord.Member):
         """Punches the user mentioned"""
         await ctx.send("ONE PUNCH! And " + user.mention + " is out! ლ(ಠ益ಠლ)")
-
-    @commands.command()
-    async def mentionable(self, ctx, role: discord.Role):
-        """checks if a role is mentionable and then mentions them"""
-        if role.mentionable:
-            msg = " {0} is able to mentioned.... mentioning now {0.mention}."
-        else:
-            msg = " {0} can not be mentioned :c. "
-        await ctx.send(msg.format(role))
 
     @commands.command()
     async def benhammer(self, ctx, member: discord.Member):
@@ -161,6 +161,17 @@ class AlexTest:
         msg = random.choice(edMessages)
         edmoji = " <:ed:505909298245926932> "
         await ctx.send(edmoji + msg + edmoji)
+
+    @commands.command()
+    async def invite(self, ctx):
+        """Creates a invite link, and sends as DM
+        else sends to channel.
+        """
+        await self.dm_author(ctx, 'You can add me to your own server using '
+                                  'the link below:\n'
+                                  '<https://discordapp.com/oauth2/authorize?'
+                                  'client_id=' + str(self.bot.user.id) +
+                                  '&scope=bot&permissions=19456>')
 
     @commands.command()
     async def botstatus(self, ctx, message=None):
