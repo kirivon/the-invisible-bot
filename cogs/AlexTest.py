@@ -47,7 +47,7 @@ class AlexTest:
         """Bot command that returns the latency in ms"""
         ping_ = self.bot.latency
         ping = round(ping_ * 1000)
-        await ctx.send(f"Your ping is {ping}ms")
+        await ctx.send(f"🏓 Ping: {ping}ms")
 
     def get_uptime(self, full=False):
         current_time = datetime.datetime.utcnow()
