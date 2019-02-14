@@ -158,7 +158,7 @@ class AlexTest:
             'I swear I\'m not making this up', 'So the exam is today, right?',
             'D\'aw you guys are no fun',
             'The marker wrote the wrong answer', 'The aliens got in your code',
-            'First, you take the second derivate, multiple by the diameter of the sun, then throw that away because its useless'
+            'First, you take the second derivative, multiple by the diameter of the sun, then throw that away because its useless'
         ]
         msg = random.choice(edMessages)
         edmoji = " <:ed:505909298245926932> "
