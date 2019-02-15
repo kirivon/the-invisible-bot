@@ -161,7 +161,7 @@ class AlexTest:
             'First, you take the second derivative, multiple by the diameter of the sun, then throw that away because its useless',
             'This is the POWER of assembly'
         ]
-        if message is "list":
+        if message == "LIST":
             em = discord.Embed(color=0xea7938)
             em.add_field(name='Ed Quotes', value=edMessages[:], inline=True)
             await ctx.send(embed=em)
