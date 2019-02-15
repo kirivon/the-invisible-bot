@@ -150,7 +150,7 @@ class AlexTest:
         await ctx.send(msg)
 
     @commands.command()
-    async def ed(self, ctx):
+    async def ed(self, ctx, message=None,  num: int = None):
         """ed function returns a random quote"""
         edMessages = [
             'Alright _raises arms_ let\'s get started',
@@ -161,9 +161,17 @@ class AlexTest:
             'First, you take the second derivative, multiple by the diameter of the sun, then throw that away because its useless',
             'This is the POWER of assembly'
         ]
-        msg = random.choice(edMessages)
-        edmoji = " <:ed:505909298245926932> "
-        await ctx.send(edmoji + msg + edmoji)
+        if message is "list":
+            em = discord.Embed(color=0xea7938)
+            em.add_field(name='Ed Quotes', value=edMessages[:], inline=True)
+            await ctx.send(embed=em)
+        else:
+            if num:
+                msg = edMessages[message]
+            else:
+                msg = random.choice(edMessages)
+            edmoji = " <:ed:505909298245926932> "
+            await ctx.send(edmoji + msg + edmoji)
 
     @commands.command()
     async def invite(self, ctx):
