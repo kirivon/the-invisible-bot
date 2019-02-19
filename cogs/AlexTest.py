@@ -202,14 +202,16 @@ class AlexTest:
     #     """Flips a coin"""
     #     await ctx.send("*flips a coin and..." + choice(["HEADS!*", "TAILS!*"]))
 
-    @commands.command()
-    async def _8ball(self, ctx, question: str):
+    @commands.command(aliases=['8ball'])
+    async def _8ball(self, ctx, *, question: commands.clean_content):
         """Ask 8 ball a question
         Questions must end with a question mark.
         Questions need double quotes "question here?"
         """
         if question.endswith("?") and question != "?":
-            await ctx.send("`" + choice(self.ball) + "`")
+            answer = random.choice(self.ball)
+            await ctx.send(f"🎱 **Question:** {question}\n**Answer:** {answer}")
+            # await ctx.send("`" + choice(self.ball) + "`")
         else:
             await ctx.send("That does not look like a question.")
 
