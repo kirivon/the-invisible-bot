@@ -163,7 +163,7 @@ class AlexTest:
             'The marker wrote the wrong answer', 'The aliens got in your code',
             'First, you take the second derivative, multiple by the diameter of the sun, then throw that away because its useless',
             'This is the POWER of assembly',
-            'BAD PROGRAMMER _no diet coke_'
+            'BAD PROGRAMMER :newspaper2: _no diet coke_'
         ]
         if message == "LIST":
             em = discord.Embed(color=0xea7938)
