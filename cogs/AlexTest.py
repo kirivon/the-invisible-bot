@@ -159,7 +159,7 @@ class AlexTest:
             'D\'aw you guys are no fun',
             'The marker wrote the wrong answer', 'The aliens got in your code',
             'First, you take the second derivative, multiple by the diameter of the sun, then throw that away because its useless',
-            'This is the POWER of assembly'
+            'This is the POWER of assembly',
             'BAD PROGRAMMER _no diet coke_'
         ]
         if message == "LIST":
