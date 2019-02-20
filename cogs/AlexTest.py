@@ -168,7 +168,7 @@ class AlexTest:
             await ctx.send(embed=em)
         else:
             if num:
-                msg = edMessages[message]
+                msg = edMessages[num]
             else:
                 msg = random.choice(edMessages)
             edmoji = " <:ed:505909298245926932> "
