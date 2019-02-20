@@ -150,8 +150,11 @@ class AlexTest:
         await ctx.send(msg)
 
     @commands.command()
-    async def ed(self, ctx, message=None,  num: int = None):
-        """ed function returns a random quote"""
+    async def ed(self, ctx,  num: int = -1, message=None):
+        """ed function returns a random quoteself.
+            Type a number to access certain quotes.
+            Type # + LIST to get the range from 0 to the # in list form.
+        """
         edMessages = [
             'Alright _raises arms_ let\'s get started',
             'hah hah. I\'m just testing you guys',
@@ -164,10 +167,10 @@ class AlexTest:
         ]
         if message == "LIST":
             em = discord.Embed(color=0xea7938)
-            em.add_field(name='Ed Quotes', value=edMessages[:], inline=True)
+            em.add_field(name='Ed Quotes', value=edMessages[:num], inline=True)
             await ctx.send(embed=em)
         else:
-            if num:
+            if num >= 0:
                 msg = edMessages[num]
             else:
                 msg = random.choice(edMessages)
