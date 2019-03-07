@@ -194,7 +194,7 @@ class AlexTest:
                                   '&scope=bot&permissions=19456>')
 
     @commands.command()
-    async def botstatus(self, ctx, message=None):
+    async def botstatus(self, ctx, *, message: commands.clean_content):
         """Sets the bot's playing status, leaving empty will use default"""
         if message:
             game = discord.Game(message)
