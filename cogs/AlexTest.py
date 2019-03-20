@@ -152,8 +152,8 @@ class AlexTest:
     @commands.command()
     async def ed(self, ctx,  num: int = -1, message=None):
         """ed function returns a random quoteself.
-            Type a number to access certain quotes.
-            Type # + LIST to get the range from 0 to the # in list form.
+            Type a number to access certain quotes, Ex: <prefix>.ed 10
+            To acess the whole list, Ex: <prefix>.ed 10 LIST
         """
         edMessages = [
             'Alright _raises arms_ let\'s get started',
@@ -172,7 +172,7 @@ class AlexTest:
         ]
         if message == "LIST":
             em = discord.Embed(color=0xea7938)
-            em.add_field(name='Ed Quotes', value=edMessages[:num], inline=True)
+            em.add_field(name='Ed Quotes', value="\n".join(map(str, edMessages)), inline=True)
             await ctx.send(embed=em)
         else:
             if num >= 0:
