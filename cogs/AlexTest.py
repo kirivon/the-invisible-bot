@@ -153,7 +153,8 @@ class AlexTest:
     async def ed(self, ctx,  num: int = -1, message=None):
         """ed function returns a random quoteself.
             Type a number to access certain quotes, Ex: <prefix>.ed 10
-            To acess the whole list, Ex: <prefix>.ed 10 LIST
+                - it is zero based so first quote is uwu.ed 0
+            To acess the whole list, Ex: <prefix>.ed 0 LIST
         """
         edMessages = [
             'Alright _raises arms_ let\'s get started',
