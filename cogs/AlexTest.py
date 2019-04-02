@@ -150,6 +150,18 @@ class AlexTest:
         await ctx.send(msg)
 
     @commands.command()
+    async def datta(self, ctx):
+        """datta function returns a random quote.
+           complete rando.
+        """
+        dattaMsg = [
+            'in other classes, you dream of getting an A, but in this class, getting an A on an exam (uncurved) isn\'t even a part of your dream'
+        ]
+        msg = random.choice(dattaMsg)
+        dattaMoji = "<:datta:549085860335714310>"
+        await ctx.send(dattaMoji + msg + dattaMoji)
+
+    @commands.command()
     async def ed(self, ctx,  num: int = -1, message=None):
         """ed function returns a random quoteself.
             Type a number to access certain quotes, Ex: <prefix>.ed 10
