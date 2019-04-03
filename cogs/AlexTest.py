@@ -96,7 +96,7 @@ class AlexTest:
     async def uwu(self, ctx, user: discord.Member):
         """ message if you mention uwuBot"""
         name = user.display_name
-        if name == "UwuBot":
+        if name == "uwuBot":
             await ctx.send("the use of 'uwu' is punishable by death")
         else:
             await ctx.send("uWu you gotta mention uwuBot...uWu")
