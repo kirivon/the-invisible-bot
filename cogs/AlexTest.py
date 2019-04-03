@@ -94,8 +94,12 @@ class AlexTest:
 
     @commands.command()
     async def on_message(self, ctx, message):
-        if message.content == "@uwu":
+        """ message if you mention uwuBot"""
+        user = ctx.message.mentions[0]
+        if user.display_name == "Test-tan#9082":
             await ctx.send("the use of 'uwu' is punishable by death")
+        else:
+            await ctx.send("uWu you gotta mention uwuBot...uWu")
 
     # @commands.command()
     # async def punch(self, ctx, user: discord.Member):
