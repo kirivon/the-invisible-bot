@@ -92,6 +92,11 @@ class AlexTest:
         except:
             return
 
+    @commands.command()
+    async def on_message(self, ctx, message):
+        if message.content == "@uwu":
+            await ctx.send("the use of 'uwu' is punishable by death")
+
     # @commands.command()
     # async def punch(self, ctx, user: discord.Member):
     #     """Punches the user mentioned"""
