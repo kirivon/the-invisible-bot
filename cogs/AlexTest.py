@@ -93,7 +93,7 @@ class AlexTest:
             return
 
     @commands.command()
-    async def on_message(self, ctx, user: discord.member):
+    async def uwu(self, ctx, user: discord.member):
         """ message if you mention uwuBot"""
         name = user.display_name
         if name == "UwuBot":
