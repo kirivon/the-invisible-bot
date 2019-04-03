@@ -93,10 +93,10 @@ class AlexTest:
             return
 
     @commands.command()
-    async def on_message(self, ctx, message):
+    async def on_message(self, ctx, user: discord.member):
         """ message if you mention uwuBot"""
-        user = ctx.message.mentions[0]
-        if user.display_name == "UwuBot":
+        name = user.display_name
+        if name == "UwuBot":
             await ctx.send("the use of 'uwu' is punishable by death")
         else:
             await ctx.send("uWu you gotta mention uwuBot...uWu")
