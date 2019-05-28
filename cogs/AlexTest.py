@@ -190,7 +190,8 @@ class AlexTest:
             'As always, division by zero will crash the program and damage the space time continiuum',
             'So, let\'s store the meaning of life, _42_, into the register',
             'And of course your compiler will give you a very useful message that will surely help you debug your program!',
-            'I\'m sure all of you have been working on the assignment and not waiting for the night before..._Yeah right, ha ha_'
+            'I\'m sure all of you have been working on the assignment and not waiting for the night before..._Yeah right, ha ha_',
+            '12 dollar Frys special, go buy some real hardware'
         ]
         if message == "LIST":
             em = discord.Embed(color=0xea7938)
