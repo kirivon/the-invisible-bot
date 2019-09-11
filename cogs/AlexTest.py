@@ -192,7 +192,8 @@ class AlexTest:
             'And of course your compiler will give you a very useful message that will surely help you debug your program!',
             'I\'m sure all of you have been working on the assignment and not waiting for the night before..._Yeah right, ha ha_',
             '12 dollar Frys special, go buy some real hardware',
-            'The most important program written in human history, which is Angry Birds'
+            'The most important program written in human history, which is Angry Birds',
+            'You wouldn\'t wanna miss mars'
         ]
         if message == "LIST":
             em = discord.Embed(color=0xea7938)
