@@ -244,7 +244,11 @@ class AlexTest:
         """
         if question.endswith("?") and question != "?":
             answer = random.choice(self.ball)
-            await ctx.send(f"🎱 **Question:** {question}\n**Answer:** {answer}")
+            em = discord.Embed(title = '🎱', colour=0x708DD0)
+            em.add_field(name = '**Question**: ', value = question, inline=True)
+            em.add_field(name = '**Answer**: ', value = answer, inline = True)
+            await ctx.send(embed=em)
+            # await ctx.send(f"🎱 **Question:** {question}\n**Answer:** {answer}")
             # await ctx.send("`" + choice(self.ball) + "`")
         else:
             await ctx.send("That does not look like a question.")
