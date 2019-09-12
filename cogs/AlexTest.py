@@ -51,7 +51,7 @@ class AlexTest:
         except discord.Forbidden:
             await ctx.send(message)
 
-    @commands.command()
+    @commands.command(aliases=['ping'])
     async def latency(self, ctx):
         """Bot command that returns the latency in ms"""
         ping_ = self.bot.latency
@@ -117,7 +117,7 @@ class AlexTest:
     #         f"{member} is beNNed ( ▀ ͜͞ʖ▀) !"
     #     )
 
-    @commands.command()
+    @commands.command(aliases=['avi'])
     async def avatar(self, ctx, txt: str = None):
         """Creates big boi of users avatar"""
         if txt:
@@ -278,11 +278,12 @@ class AlexTest:
             await ctx.send("{} We're square {}!"
                            "".format(uwu_choice.value, author.mention))
 
-    @commands.command()
-    async def roleinfo(self, ctx, msg):
+    @commands.command(aliases=['rinfo', 'ri'])
+    async def roleinfo(self, ctx, *, msg: commands.clean_content):
         """Get more info about a specific role.
         You need to quote roles with spaces.
         You may also specify a server to check the role for.
+        Aliases: rinfo, ri
         """
         #guild = ctx.message.guild
         guild_roles = ctx.message.guild.roles
@@ -316,9 +317,11 @@ class AlexTest:
                 return await ctx.send(content=None, embed=em)
         await ctx.send('Could not find role ``{}``'.format(msg))
 
-    @commands.command()
+    @commands.command(aliases=['uinfo'])
     async def userinfo(self, ctx, *, name=""):
-        """Get user info. Ex: uwu.userinfo @user"""
+        """Get user info. Ex: uwu.userinfo @user
+            Aliases: uinfo
+        """
         if ctx.invoked_subcommand is None:
             if name:
                 try:
@@ -364,9 +367,11 @@ class AlexTest:
             em.set_author(name=user)
             await ctx.send(embed=em)
 
-    @commands.command()
+    @commands.command(aliases=['myr'])
     async def myroles(self, ctx, *, user=None):
-        """Check the roles of a user."""
+        """Check the roles of a user.
+            Aliases: myr
+        """
         if not user:
             member = ctx.message.author
         else:
@@ -391,7 +396,9 @@ class AlexTest:
 
     @commands.group(aliases=['server', 'sinfo', 'si'], pass_context=True, invoke_without_command=True)
     async def serverinfo(self, ctx, *, msg=""):
-        """Various info about the server. [p]help server for more info."""
+        """Various info about the server. [p]help server for more info.
+            Aliases: server, sinfo, si
+        """
         if ctx.invoked_subcommand is None:
             server = ctx.message.guild
             online = 0
