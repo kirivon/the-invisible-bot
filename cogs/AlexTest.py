@@ -220,7 +220,7 @@ class AlexTest:
 
     @commands.command()
     async def botstatus(self, ctx, *, message: commands.clean_content):
-        """Sets the bot's playing status, leaving empty will use default"""
+        """Sets the bot's playing status to your message."""
         if message:
             game = discord.Game(message)
             await self.bot.change_presence(status=discord.Status.online,
