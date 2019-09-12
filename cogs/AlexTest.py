@@ -24,7 +24,7 @@ class RPSParser:
         elif argument == "scissors":
             self.choice = RPS.scissors
         else:
-            raise
+            raise ValueError("You dun goofed")
 
 
 class AlexTest:
@@ -284,7 +284,7 @@ class AlexTest:
         You need to quote roles with spaces.
         You may also specify a server to check the role for.
         """
-        guild = ctx.message.guild
+        #guild = ctx.message.guild
         guild_roles = ctx.message.guild.roles
         for role in guild_roles:
             if msg.lower() == role.name.lower() or msg == role.id:
@@ -398,11 +398,11 @@ class AlexTest:
             for i in server.members:
                 if str(i.status) == 'online' or str(i.status) == 'idle' or str(i.status) == 'dnd':
                     online += 1
-            all_users = []
-            for user in server.members:
-                all_users.append('{}#{}'.format(user.name, user.discriminator))
-            all_users.sort()
-            all = '\n'.join(all_users)
+            # all_users = []
+            # for user in server.members:
+            #     all_users.append('{}#{}'.format(user.name, user.discriminator))
+            # all_users.sort()
+            # all = '\n'.join(all_users)
 
             channel_count = len([x for x in server.channels if type(x)
                                  == discord.channel.TextChannel])
