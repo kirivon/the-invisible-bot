@@ -186,7 +186,7 @@ class AlexTest:
             'First, you take the second derivative, multiple by the diameter of the sun, then throw that away because its useless',
             'This is the POWER of assembly',
             'BAD PROGRAMMER :newspaper2: _no diet coke_',
-            'We solve this by doing highly complex arithmetic operations like... add',
+            'We solve this by doing highly complex arithmetic operations like... addition',
             'As always, division by zero will crash the program and damage the space time continiuum',
             'So, let\'s store the meaning of life, _42_, into the register',
             'And of course your compiler will give you a very useful message that will surely help you debug your program!',
