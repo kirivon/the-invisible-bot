@@ -15,6 +15,7 @@ class RPS(Enum):
 
 
 class RPSParser:
+
     def __init__(self, argument):
         argument = argument.lower()
         if argument == "rock":
@@ -27,20 +28,20 @@ class RPSParser:
             raise ValueError("You dun goofed")
 
 
-class AlexTest:
+class AlexTest(commands.Cog, name='Alex Cog'):
 
     def __init__(self, bot):
         self.bot = bot
         self.uptime = datetime.datetime.utcnow()
-        self.ball = ["As I see it, yes", "It is certain", "It is decidedly so",
-                     "Most likely", "Outlook good", "Signs point to yes",
-                     "Without a doubt", "Yes", "Yes – definitely",
-                     "You may rely on it", "Reply hazy, try again",
-                     "Ask again later", "Better not tell you now",
-                     "Cannot predict now", "Concentrate and ask again",
-                     "Don't count on it", "My reply is no",
-                     "My sources say no",
-                     "Outlook not so good", "Very doubtful"]
+        self.ball = [
+            "As I see it, yes", "It is certain", "It is decidedly so",
+            "Most likely", "Outlook good", "Signs point to yes",
+            "Without a doubt", "Yes", "Yes – definitely", "You may rely on it",
+            "Reply hazy, try again", "Ask again later",
+            "Better not tell you now", "Cannot predict now",
+            "Concentrate and ask again", "Don't count on it", "My reply is no",
+            "My sources say no", "Outlook not so good", "Very doubtful"
+        ]
 
     @staticmethod
     async def dm_author(ctx, message):
@@ -66,12 +67,11 @@ class AlexTest:
         days, hours = divmod(hours, 24)
 
         if full:
-            return ('{} days, {} hours, {} minutes, and {} seconds'.
-                    format(days, hours, minutes, seconds))
+            return ('{} days, {} hours, {} minutes, and {} seconds'.format(
+                days, hours, minutes, seconds))
 
         else:
-            return ('{}d {}h {}m {}s'.
-                    format(days, hours, minutes, seconds))
+            return ('{}d {}h {}m {}s'.format(days, hours, minutes, seconds))
 
     @commands.command()
     @commands.cooldown(1, 3, BucketType.user)
@@ -171,7 +171,7 @@ class AlexTest:
         await ctx.send(dattaMoji + msg + dattaMoji)
 
     @commands.command()
-    async def ed(self, ctx,  num: int = -1, message=None):
+    async def ed(self, ctx, num: int = -1, message=None):
         """ed function returns a random quoteself.
             Type a number to access certain quotes, Ex: <prefix>.ed 10
                 - it is zero based so first quote is uwu.ed 0
@@ -181,8 +181,8 @@ class AlexTest:
             'Alright _raises arms_ let\'s get started',
             'hah hah. I\'m just testing you guys',
             'I swear I\'m not making this up', 'So the exam is today, right?',
-            'D\'aw you guys are no fun',
-            'The marker wrote the wrong answer', 'The aliens got in your code',
+            'D\'aw you guys are no fun', 'The marker wrote the wrong answer',
+            'The aliens got in your code',
             'First, you take the second derivative, multiple by the diameter of the sun, then throw that away because its useless',
             'This is the POWER of assembly',
             'BAD PROGRAMMER :newspaper2: _no diet coke_',
@@ -197,7 +197,10 @@ class AlexTest:
         ]
         if message == "LIST":
             em = discord.Embed(color=0xea7938)
-            em.add_field(name='Ed Quotes', value="\n".join(map(str, edMessages)), inline=True)
+            em.add_field(
+                name='Ed Quotes',
+                value="\n".join(map(str, edMessages)),
+                inline=True)
             await ctx.send(embed=em)
         else:
             if num >= 0:
@@ -212,19 +215,20 @@ class AlexTest:
         """Creates a invite link, and sends as DM
         else sends to channel.
         """
-        await self.dm_author(ctx, 'You can add me to your own server using '
-                                  'the link below:\n'
-                                  '<https://discordapp.com/oauth2/authorize?'
-                                  'client_id=' + str(self.bot.user.id) +
-                                  '&scope=bot&permissions=19456>')
+        await self.dm_author(
+            ctx, 'You can add me to your own server using '
+            'the link below:\n'
+            '<https://discordapp.com/oauth2/authorize?'
+            'client_id=' + str(self.bot.user.id) +
+            '&scope=bot&permissions=19456>')
 
     @commands.command()
     async def botstatus(self, ctx, *, message: commands.clean_content):
         """Sets the bot's playing status to your message."""
         if message:
             game = discord.Game(message)
-            await self.bot.change_presence(status=discord.Status.online,
-                                           activity=game)
+            await self.bot.change_presence(
+                status=discord.Status.online, activity=game)
             await ctx.send("set bot status to ' Playing " + message + " ' ")
         # else:
         #     game = discord.Game("with unicode faces")
@@ -244,9 +248,9 @@ class AlexTest:
         """
         if question.endswith("?") and question != "?":
             answer = random.choice(self.ball)
-            em = discord.Embed(title = '🎱', colour=0x708DD0)
-            em.add_field(name = '**Question**: ', value = question, inline=True)
-            em.add_field(name = '**Answer**: ', value = answer, inline = True)
+            em = discord.Embed(title='🎱', colour=0x708DD0)
+            em.add_field(name='**Question**: ', value=question, inline=True)
+            em.add_field(name='**Answer**: ', value=answer, inline=True)
             await ctx.send(embed=em)
             # await ctx.send(f"🎱 **Question:** {question}\n**Answer:** {answer}")
             # await ctx.send("`" + choice(self.ball) + "`")
@@ -260,10 +264,10 @@ class AlexTest:
         player_choice = user_choice.choice
         uwu_choice = choice((RPS.rock, RPS.paper, RPS.scissors))
         situations = {
-            (RPS.rock,     RPS.paper): False,
-            (RPS.rock,     RPS.scissors): True,
-            (RPS.paper,    RPS.rock): True,
-            (RPS.paper,    RPS.scissors): False,
+            (RPS.rock, RPS.paper): False,
+            (RPS.rock, RPS.scissors): True,
+            (RPS.paper, RPS.rock): True,
+            (RPS.paper, RPS.scissors): False,
             (RPS.scissors, RPS.rock): False,
             (RPS.scissors, RPS.paper): True
         }
@@ -299,25 +303,25 @@ class AlexTest:
                 em = discord.Embed(title='Role Info', color=role.color)
                 em.add_field(name='Name', value=role.name)
                 em.add_field(name='ID', value=role.id, inline=False)
-                em.add_field(name='Users in this role',
-                             value=str(len(role.members)))
-                em.add_field(name='Role color hex value',
-                             value=str(role.color))
-                em.add_field(name='Role color RGB value',
-                             value=role.color.to_rgb())
+                em.add_field(
+                    name='Users in this role', value=str(len(role.members)))
+                em.add_field(name='Role color hex value', value=str(role.color))
+                em.add_field(
+                    name='Role color RGB value', value=role.color.to_rgb())
                 em.add_field(name='Mentionable', value=role.mentionable)
                 if len(role.members) >= 1:
-                    em.add_field(name='All users', value=all_users,
-                                 inline=False)
+                    em.add_field(
+                        name='All users', value=all_users, inline=False)
                 else:
-                    em.add_field(name='All users',
-                                 value='There are no users in this role!',
-                                 inline=False)
-                em.add_field(name='Created at',
-                             value=role.created_at.__format__('%x at %X'))
-                em.set_thumbnail(
-                    url='http://www.colorhexa.com/{}.png'.format(
-                        str(role.color).strip("#")))
+                    em.add_field(
+                        name='All users',
+                        value='There are no users in this role!',
+                        inline=False)
+                em.add_field(
+                    name='Created at',
+                    value=role.created_at.__format__('%x at %X'))
+                em.set_thumbnail(url='http://www.colorhexa.com/{}.png'.format(
+                    str(role.color).strip("#")))
                 return await ctx.send(content=None, embed=em)
         await ctx.send('Could not find role ``{}``'.format(msg))
 
@@ -352,8 +356,8 @@ class AlexTest:
                     role = "N/A"
                 voice_state = None if not user.voice else user.voice.channel
 
-            em = discord.Embed(timestamp=ctx.message.created_at,
-                               colour=0x708DD0)
+            em = discord.Embed(
+                timestamp=ctx.message.created_at, colour=0x708DD0)
             em.add_field(name='User ID', value=user.id, inline=True)
             if isinstance(user, discord.Member):
                 em.add_field(name='Nick', value=user.nick, inline=True)
@@ -361,12 +365,13 @@ class AlexTest:
                 em.add_field(name='In Voice', value=voice_state, inline=True)
                 em.add_field(name='Game', value=user.activity, inline=True)
                 em.add_field(name='Highest Role', value=role, inline=True)
-            em.add_field(name='Account Created',
-                         value=user.created_at.__format__(
-                             '%A, %d. %B %Y @ %H:%M:%S'))
+            em.add_field(
+                name='Account Created',
+                value=user.created_at.__format__('%A, %d. %B %Y @ %H:%M:%S'))
             if isinstance(user, discord.Member):
-                em.add_field(name='Join Date', value=user.joined_at.__format__(
-                    '%A, %d. %B %Y @ %H:%M:%S'))
+                em.add_field(
+                    name='Join Date',
+                    value=user.joined_at.__format__('%A, %d. %B %Y @ %H:%M:%S'))
             em.set_thumbnail(url=avi)
             em.set_author(name=user)
             await ctx.send(embed=em)
@@ -391,14 +396,18 @@ class AlexTest:
             await ctx.send("That user couldn't be found.Please check your" +
                            " spelling and try again.")
         elif len(member.roles[1:]) >= 1:
-            embed = discord.Embed(title="{}'s roles".format(member.name),
-                                  description="\n".join(
-                [x.name for x in member.roles[1:]]), colour=member.colour)
+            embed = discord.Embed(
+                title="{}'s roles".format(member.name),
+                description="\n".join([x.name for x in member.roles[1:]]),
+                colour=member.colour)
             await ctx.send("", embed=embed)
         else:
             await ctx.send("That user has no roles!")
 
-    @commands.group(aliases=['server', 'sinfo', 'si'], pass_context=True, invoke_without_command=True)
+    @commands.group(
+        aliases=['server', 'sinfo', 'si'],
+        pass_context=True,
+        invoke_without_command=True)
     async def serverinfo(self, ctx, *, msg=""):
         """Various info about the server. [p]help server for more info.
             Aliases: server, sinfo, si
@@ -407,7 +416,8 @@ class AlexTest:
             server = ctx.message.guild
             online = 0
             for i in server.members:
-                if str(i.status) == 'online' or str(i.status) == 'idle' or str(i.status) == 'dnd':
+                if str(i.status) == 'online' or str(i.status) == 'idle' or str(
+                        i.status) == 'dnd':
                     online += 1
             # all_users = []
             # for user in server.members:
@@ -415,8 +425,10 @@ class AlexTest:
             # all_users.sort()
             # all = '\n'.join(all_users)
 
-            channel_count = len([x for x in server.channels if type(x)
-                                 == discord.channel.TextChannel])
+            channel_count = len([
+                x for x in server.channels
+                if type(x) == discord.channel.TextChannel
+            ])
 
             role_count = len(server.roles)
             emoji_count = len(server.emojis)
@@ -428,13 +440,16 @@ class AlexTest:
             em.add_field(name='Currently Online', value=online)
             em.add_field(name='Text Channels', value=str(channel_count))
             em.add_field(name='Region', value=server.region)
-            em.add_field(name='Verification Level', value=str(server.verification_level))
+            em.add_field(
+                name='Verification Level', value=str(server.verification_level))
             em.add_field(name='Number of roles', value=str(role_count))
             em.add_field(name='Number of emotes', value=str(emoji_count))
-            em.add_field(name='Created At', value=server.created_at.__format__(
-                '%A, %d. %B %Y @ %H:%M:%S'))
+            em.add_field(
+                name='Created At',
+                value=server.created_at.__format__('%A, %d. %B %Y @ %H:%M:%S'))
             em.set_thumbnail(url=server.icon_url)
-            em.set_author(name='Server Info', icon_url='https://i.imgur.com/K97C1Wh.png')
+            em.set_author(
+                name='Server Info', icon_url='https://i.imgur.com/K97C1Wh.png')
             em.set_footer(text='Server ID: %s' % server.id)
             await ctx.send(embed=em)
             # if msg:
