@@ -1,5 +1,5 @@
 # Using discord.py:alpine build as a parent image
-FROM gorialis/discord.py:3.7.1-alpine-rewrite-minimal
+FROM gorialis/discord.py:3.8.0-buster-pypi-minimal
 
 # Set the working directory to /app
 WORKDIR /app
