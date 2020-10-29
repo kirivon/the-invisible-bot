@@ -193,7 +193,8 @@ class AlexTest(commands.Cog, name='Alex Cog'):
             'I\'m sure all of you have been working on the assignment and not waiting for the night before..._Yeah right, ha ha_',
             '12 dollar Frys special, go buy some real hardware',
             'The most important program written in human history, which is Angry Birds',
-            'You wouldn\'t wanna miss mars'
+            'You wouldn\'t wanna miss mars',
+            'Cmon\' don\'t you guys watch big bang theory? What nobody? Oh, you are are no fun'
         ]
         if message == "LIST":
             em = discord.Embed(color=0xea7938)
