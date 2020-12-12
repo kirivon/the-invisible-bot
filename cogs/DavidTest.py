@@ -9,7 +9,7 @@ from random import choice
 from discord.ext import commands
 
 
-class DavidTest(commands.Cog, name="David Cog"):
+class DavidTest():
 
     def __init__(self, bot):
         self.bot = bot
