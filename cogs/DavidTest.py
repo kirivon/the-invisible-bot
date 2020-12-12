@@ -9,7 +9,7 @@ from random import choice
 from discord.ext import commands
 
 
-class DavidTest:
+class DavidTest(commands.Cog, name="David Cog"):
 
     def __init__(self, bot):
         self.bot = bot
@@ -17,10 +17,10 @@ class DavidTest:
                      "Bomb", "Robot", "Bow (no arrows)", "Bow (with arrows)",
                      "Pokeball", "Yugioh Card", "Shoes", "Shirt"]
 
-    @commands.command()
-    async def ping(self, ctx):
-        """Bot command that displays pong."""
-        await ctx.send("Pong (b ᵔ▽ᵔ)b")
+    # @commands.command()
+    # async def ping(self, ctx):
+    #     """Bot command that displays pong."""
+    #     await ctx.send("Pong (b ᵔ▽ᵔ)b")
 
     @commands.command()
     async def lootbox(self, ctx):

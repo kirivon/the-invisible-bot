@@ -6,7 +6,7 @@ from random import choice
 from discord.ext import commands
 import json
 
-class NickTest:
+class NickTest(commands.Cog, name="Nick Cog"):
 
 	def __init__(self,bot):
 		self.bot = bot

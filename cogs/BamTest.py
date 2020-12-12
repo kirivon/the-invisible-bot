@@ -15,7 +15,7 @@ from random import choice
 # =============================================================================
 
 
-class BamboozledTest:
+class BamboozledTest(commands.Cog, name="Bam Cog"):
     """ 0.3 Expand the emotional spectrum (maybe will use union)
         -   1 - 10 = ANGER
             + 1. HURT

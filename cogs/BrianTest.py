@@ -5,7 +5,7 @@ import discord
 import random
 from discord.ext import commands
 
-class BrianTest:
+class BrianTest(commands.Cog, name="Brian Cog"):
 
     def __init__(self, bot):
         self.bot = bot

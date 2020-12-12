@@ -28,7 +28,7 @@ class RPSParser:
             raise ValueError("You dun goofed")
 
 
-class AlexTest(commands.Cog, name='Alex Cog'):
+class AlexTest(commands.Cog, name='Alexis Cog'):
 
     def __init__(self, bot):
         self.bot = bot
